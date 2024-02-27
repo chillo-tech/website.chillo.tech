@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Header from "@/components/Header";
+import Banner from "@/components/Banner";
 
 export default function Home() {
   return (
@@ -10,8 +10,8 @@ export default function Home() {
                     <Header/>
                 </div>
             </div>
-            <div className="container h-full w-full">
-                {/*TODO put body content here*/}
+            <div className="h-full w-full">
+                <Banner/>
             </div>
         </div>
     </main>
