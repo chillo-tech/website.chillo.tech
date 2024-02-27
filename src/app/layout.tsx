@@ -1,12 +1,18 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from 'next';
+import { Roboto } from 'next/font/google';
+import './globals.css';
+import { cn } from '@/lib/utils';
+import Header from '@/components/Header';
+import { siteConfig } from '@/config';
 
-const inter = Inter({ subsets: ["latin"] });
+const roboto = Roboto({
+  weight: '300',
+  subsets: ['latin'],
+});
 
 export const metadata: Metadata = {
-  title: "Chillo tech | Des devs hautement qualifiés pour atteindre vos objectifs commerciaux. Faites confiance à notre expertise et obtenez des résultats concrets dès maintenant",
-  description: "Des devs hautement qualifiés pour atteindre vos objectifs commerciaux. Faites confiance à notre expertise et obtenez des résultats concrets dès maintenant",
+  title: siteConfig.title,
+  description: siteConfig.description,
 };
 
 export default function RootLayout({
@@ -15,8 +21,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="fr">
+      <body className={roboto.className}>
+        <div className={cn('bg-blue w-full h-full p-5')}>
+          <Header />
+          <main className="min-h-screen w-full bg-white">{children}</main>
+        </div>
+      </body>
     </html>
   );
 }
