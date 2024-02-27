@@ -1,14 +1,11 @@
 import type { Metadata } from 'next';
-import { Roboto } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import Header from '@/components/Header';
 import { siteConfig } from '@/config';
-
-const roboto = Roboto({
-  weight: '300',
-  subsets: ['latin'],
-});
+import Footer from '@/components/Footer';
+import { paragraph } from '@/assets/fonts';
+import { ThemeProvider } from '@/components/providers/themes-providers';
 
 export const metadata: Metadata = {
   title: siteConfig.title,
@@ -22,11 +19,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className={roboto.className}>
-        <div className={cn('bg-blue w-full h-full p-5')}>
-          <Header />
-          <main className="min-h-screen w-full bg-white">{children}</main>
-        </div>
+      <body>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          disableTransitionOnChange>
+          <div className={cn('bg-blue w-full h-full p-5 text-black')}>
+            <Header />
+            <main
+              className={cn(
+                paragraph.className,
+                'min-h-screen w-full bg-white'
+              )}>
+              {children}
+            </main>
+            <Footer />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
