@@ -16,7 +16,7 @@ function Footer() {
         paragraph.className,
         'container w-full min-h-96 p-4 md:p-12 bg-dark-gray text-black'
       )}>
-      <div className="container w-[60%] text-center space-y-5 mx-auto">
+      <div className="container w-full md:w-[60%] text-center space-y-5 mx-auto">
         <h2
           className={cn(
             title1.className,
@@ -34,12 +34,12 @@ function Footer() {
           {lang.contact_btn}
         </Button>
       </div>
-      <div className="mt-16 w-full flex flex-col lg:flex-row gap-4 justify-between">
+      <div className="mt-16 w-full flex flex-col lg:flex-row gap-8 md:gap-0 justify-between">
         <Logo />
-        <NavigationLinks />
+        <NavigationLinks className="ml-4" />
       </div>
       <Separator className="my-4" />
-      <div className="w-full flex flex-col md:flex-row gap-4 justify-between items-center">
+      <div className="w-full flex flex-col md:flex-row gap-4 justify-between items-center text-center">
         <span className="inline-block">{lang.footer.copyright}</span>
         <span className="inline-block">
           <Link

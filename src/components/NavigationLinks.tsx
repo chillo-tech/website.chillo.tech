@@ -3,9 +3,15 @@ import { siteConfig } from '@/config';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
-function NavigationLinks() {
+interface NavigationLinksProps extends React.HTMLAttributes<HTMLDivElement> {}
+
+function NavigationLinks({ className }: NavigationLinksProps) {
   return (
-    <nav className="flex justify-center items-center flex-col md:flex-row gap-6">
+    <nav
+      className={cn(
+        'flex justify-center md:items-center flex-col md:flex-row gap-3 md:gap-6',
+        className
+      )}>
       {siteConfig.mainNavLinks.map((link, index) => (
         <Link
           key={`${index}-${link.href}`}

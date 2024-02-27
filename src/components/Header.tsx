@@ -6,7 +6,7 @@ import NavigationLinks from './NavigationLinks';
 
 export default function Header() {
   return (
-    <header className="w-full sticky top-0 p-8 bg-gray">
+    <header className="w-full sticky top-0 p-8 bg-gray z-50">
       <nav className="flex justify-between">
         <div className="w-64 flex items-center">
           <Link href={'/'} className="">
@@ -20,7 +20,7 @@ export default function Header() {
           </Link>
         </div>
         <div className="flex items-center gap-6">
-          <NavigationLinks />
+          <NavigationLinks className="hidden md:flex" />
           <div className="flex items-center gap-2">
             <button
               type="button"
