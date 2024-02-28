@@ -28,7 +28,7 @@ function Footer() {
         <Button
           variant={'outline'}
           className={cn(
-            'bg-green border-none font-semibold text-white hover:bg-green/80',
+            'bg-green border-none font-semibold text-white hover:bg-green/80 rounded-full',
             title2.className
           )}>
           {lang.contact_btn}

@@ -1,15 +1,13 @@
-import type { Metadata } from 'next';
+import type {Metadata} from 'next';
 import './globals.css';
-import { cn } from '@/lib/utils';
 import Header from '@/components/Header';
-import { siteConfig } from '@/config';
+import {siteConfig} from '@/config';
 import Footer from '@/components/Footer';
-import { paragraph } from '@/assets/fonts';
-import { ThemeProvider } from '@/components/providers/themes-providers';
+import {ThemeProvider} from '@/components/providers/themes-providers';
 
 export const metadata: Metadata = {
-  title: siteConfig.title,
-  description: siteConfig.description,
+    title: siteConfig.title,
+    description: siteConfig.description,
 };
 
 export default function RootLayout({
@@ -17,26 +15,28 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="fr">
-      <body>
+    return (
+        <html lang="fr">
+        <body>
         <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          disableTransitionOnChange>
-          <div className={cn('bg-blue w-full h-full p-5 pb-0 text-black')}>
-            <Header />
-            <main
-              className={cn(
-                paragraph.className,
-                'min-h-screen w-full bg-white py-8'
-              )}>
-              {children}
-            </main>
-            <Footer />
-          </div>
+            attribute="class"
+            defaultTheme="light"
+            disableTransitionOnChange>
+            <div className="h-full w-full p-5 bg-blue">
+                <div className="bg-white h-full flex justify-center flex-col w-full">
+                    <div className="w-full h-max flex justify-center py-5 px-3 sticky top-0 z-40 bg-white">
+                        <div className="container h-max w-full">
+                            <Header/>
+                        </div>
+                    </div>
+                    <main className="container min-h-screen w-full bg-white z-10">{children}</main>
+                    <div className="bg-dark-gray-08">
+                        <Footer/>
+                    </div>
+                </div>
+            </div>
         </ThemeProvider>
-      </body>
-    </html>
-  );
+        </body>
+        </html>
+    );
 }
