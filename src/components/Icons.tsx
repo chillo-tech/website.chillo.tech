@@ -18,6 +18,8 @@ import {
   MessageSquareTextIcon,
   GlobeIcon,
   LogOutIcon,
+  PlusIcon,
+  Mail,
 } from 'lucide-react';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
@@ -29,6 +31,7 @@ export const Icons = {
   facebook: FaFacebook,
   instagram: FaInstagram,
   whatsapp: FaWhatsapp,
+  plus: PlusIcon,
   sun: SunIcon,
   in: LinkedInLogoIcon,
   lang: GlobeIcon,

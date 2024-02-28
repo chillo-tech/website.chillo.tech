@@ -24,12 +24,12 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="light"
           disableTransitionOnChange>
-          <div className={cn('bg-blue w-full h-full p-5 text-black')}>
+          <div className={cn('bg-blue w-full h-full p-5 pb-0 text-black')}>
             <Header />
             <main
               className={cn(
                 paragraph.className,
-                'min-h-screen w-full bg-white'
+                'min-h-screen w-full bg-white py-8'
               )}>
               {children}
             </main>
