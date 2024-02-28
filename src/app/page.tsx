@@ -5,7 +5,7 @@ import Banner from '@/components/Banner';
 
 export default function Home() {
   return (
-    <div>
+    <div className="space-y-8">
       <Banner />
       <PricingPanel />
       <FAQ />

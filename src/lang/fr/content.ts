@@ -3,6 +3,32 @@ type FAQ = {
   answer: string;
 };
 
+const pricingSection = {
+  title: 'Tarification',
+  subtitle: 'Tarification',
+  description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde vero
+  magnam, harum rem aperiam, perspiciatis omnis eum delectus similique
+  nesciunt veritatis optio, vel expedita iusto? Repellendus iure labore
+  molestias a!
+  <br />
+  <br />
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
+  eius alias, ducimus incidunt minima deleniti aut dolores asperiores
+  nihil ?`,
+  currency: '€',
+  defaultPeriodicity: 'mois',
+  standard: {
+    title: 'Standard',
+    subtitle: 'Standard subtitles',
+    services: ['OpenStack', 'Google', 'Microsoft'],
+  },
+  pro: {
+    title: 'Pro',
+    subtitle: 'Pro subtitles',
+    services: ['Github'],
+  },
+};
+
 const faqs: FAQ[] = [
   {
     question: 'Qui est le client idéal de Chillo Tech ?',
@@ -45,6 +71,7 @@ export const text = {
     contentTitle: 'Les Bases.',
     faqs,
   },
+  pricing: pricingSection,
   footer: {
     title:
       'CHILLO accélère la performance business et digitale des entreprises.',
