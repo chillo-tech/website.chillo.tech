@@ -12,7 +12,6 @@ export default function Header() {
     const onMenuToggle = (e) => {
         const navlinks = document.querySelector(".navLinks");
         setToggleMenu(!toggleMenu)
-        console.log(navlinks)
         navlinks.classList.toggle("left-[-150%]")
     }
 
