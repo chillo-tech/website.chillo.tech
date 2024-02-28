@@ -1,17 +1,20 @@
 FROM node:18.19-alpine
 
 RUN mkdir -p /usr/src/app
+
 WORKDIR /usr/src/app
 
-COPY ./ ./
+COPY package*.json ./
 
-RUN npm install
+RUN yarn install
 #Uncomment this when you're on prod environment
-#RUN npm run build
+#RUN yarn build
+
+COPY ./ ./
 
 EXPOSE 3000
 
 #Uncomment this when you're on prod environment
-#CMD ["npm", "start"]
+#CMD ["yarn", "start"]
 #Comment this when you're on prod environment
-CMD ["npm", "run", "dev"]
+CMD ["yarn", "dev"]

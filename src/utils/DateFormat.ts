@@ -17,7 +17,7 @@ export const getFormattedTime = (entry: Date) => {
     return `${hours}:${minutes}`;
 };
 
-const getWeekNumber = (entry: Date) => {
+export const getWeekNumber = (entry: Date) => {
     // Copy date so don't modify original
     const date = new Date(Date.UTC(entry.getFullYear(), entry.getMonth(), entry.getDate()));
     // Set to nearest Thursday: current date + 4 - current day number
