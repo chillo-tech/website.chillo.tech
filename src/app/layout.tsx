@@ -30,7 +30,9 @@ export default function RootLayout({
                         </div>
                     </div>
                     <main className="container min-h-screen w-full bg-white z-10">{children}</main>
-                    <Footer/>
+                    <div className="bg-dark-gray">
+                        <Footer/>
+                    </div>
                 </div>
             </div>
         </ThemeProvider>
