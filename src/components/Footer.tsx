@@ -8,6 +8,7 @@ import { Separator } from './ui/separator';
 import SocialMediaLinks from './SocialMediaLinks';
 import { siteConfig } from '@/config';
 import Link from 'next/link';
+import { ROUTE_CONTACT } from '@/config/routes';
 
 function Footer() {
   return (
@@ -25,14 +26,16 @@ function Footer() {
           {lang.footer.title}
         </h2>
         <p className="w-[70%] mx-auto">{lang.footer.subtitle}</p>
-        <Button
-          variant={'outline'}
-          className={cn(
-            'bg-green border-none font-semibold text-white hover:bg-green/80 rounded-full',
-            title2.className
-          )}>
-          {lang.contact_btn}
-        </Button>
+        <Link href={ROUTE_CONTACT}>
+          <Button
+            variant={'outline'}
+            className={cn(
+              'bg-green border-none font-semibold text-white hover:bg-green/80 rounded-full',
+              title2.className
+            )}>
+            {lang.contact_btn}
+          </Button>
+        </Link>
       </div>
       <div className="mt-16 w-full flex flex-col lg:flex-row gap-8 md:gap-0 justify-between">
         <Logo />
