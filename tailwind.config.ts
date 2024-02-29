@@ -24,6 +24,7 @@ const config = {
         blue: '#25326F',
         green: '#98C11F',
         gray: '#E8E8E8',
+        'light-gray': '#F5F6F8',
         'dark-gray': '#D5D6D8',
         'dark-gray-08': '#5a687914',
         gold: '#FFD600',

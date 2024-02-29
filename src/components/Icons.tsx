@@ -18,17 +18,21 @@ import {
   MessageSquareTextIcon,
   GlobeIcon,
   LogOutIcon,
+  PlusIcon,
 } from 'lucide-react';
 import { FcGoogle } from 'react-icons/fc';
-import { FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import { FaFacebook, FaRegCheckCircle, FaCrown, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import Image from 'next/image';
 
 export const Icons = {
   book: BookOpenText,
+  crown: FaCrown,
+  check: FaRegCheckCircle,
   email: MailIcon,
   facebook: FaFacebook,
   instagram: FaInstagram,
   whatsapp: FaWhatsapp,
+  plus: PlusIcon,
   sun: SunIcon,
   in: LinkedInLogoIcon,
   lang: GlobeIcon,
