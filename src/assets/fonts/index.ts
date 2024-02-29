@@ -8,11 +8,10 @@ export const paragraph = Roboto({
 export const title1 = Poppins({
   subsets: ['latin'],
   style: 'normal',
-  weight: '800',
+  weight: '900',
 });
 
 export const title2 = Montserrat({
-  weight: '500',
   style: 'normal',
   subsets: ['latin'],
 });

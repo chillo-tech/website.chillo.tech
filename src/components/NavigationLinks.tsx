@@ -9,7 +9,7 @@ function NavigationLinks({ className }: NavigationLinksProps) {
   return (
     <nav
       className={cn(
-        'flex justify-center md:items-center flex-col md:flex-row gap-3 md:gap-6',
+        'flex justify-center w-fit md:items-center flex-col md:flex-row gap-3 md:gap-6',
         className
       )}>
       {siteConfig.mainNavLinks.map((link, index) => (

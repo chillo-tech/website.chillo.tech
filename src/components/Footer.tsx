@@ -14,7 +14,7 @@ function Footer() {
     <footer
       className={cn(
         paragraph.className,
-        'container w-full min-h-96 p-4 md:p-12 text-black'
+        'container w-full min-h-96 p-4 pt-8 md:p-12 bg-dark-gray text-black'
       )}>
       <div className="container w-full md:w-[60%] text-center space-y-5 mx-auto">
         <h2
