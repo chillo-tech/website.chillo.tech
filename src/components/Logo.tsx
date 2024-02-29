@@ -4,7 +4,7 @@ import { Icons } from './Icons';
 
 const Logo = () => {
   return (
-    <div className="w-64">
+    <div className="w-130">
       <Link href={ROUTE_HOME} className="">
         <Icons.logo />
       </Link>

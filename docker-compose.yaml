@@ -3,6 +3,7 @@ services:
   #Node 18.19-alpine web server service
   node-web-server:
     container_name: 'node-web-server'
+    restart: always
     build:
       context: .
       dockerfile: Dockerfile

@@ -19,7 +19,7 @@ const SectionTitle = ({
   return (
     <div
       className={cn(
-        'container w-full min-h-24 md:h-72 flex flex-col gap-4 justify-center items-center m-0 p-5',
+        'w-full min-h-24 md:h-72 flex flex-col gap-4 justify-center items-center m-0 p-5',
         className
       )}>
       <h2
