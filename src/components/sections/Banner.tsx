@@ -1,24 +1,32 @@
 import Image from 'next/image'
 import {cn} from "@/lib/utils";
-import {title2} from "@/assets/fonts";
+import {title1, title2} from "@/assets/fonts";
 import {lang} from "@/lang";
 import {Button} from "@/components/ui/button";
+import RenderHtmlContent from "@/components/RenderHTMLContent";
+import React from "react";
+import {SectionLayout} from "@/components/sections/layout/SectionLayout";
 
-export default function Banner() {
+export default function Banner({className}) {
 
     return (
-        <div className="flex flex-col md:flex-row items-strech justify-betweenpy-6 px-6 md:py-12 lg:px-12">
+        <SectionLayout
+            className={cn(className, 'flex flex-col md:flex-row items-strech justify-betweenpy-6 px-6 md:py-12 lg:pt-12')}>
             <div className="flex flex-col justify-center md:w-1/2 sm:w-full">
-                <h1 className="text-blue text-5xl lg:text-6xl font-semibold">
-                    Boostez votre entreprise
+                <h1 className={cn(
+                    title1.className,
+                    'text-blue text-5xl lg:text-6xl font-semibold'
+                )}>
+                    {lang.banner.title}
                 </h1>
-                <h2 className="text-black font-semibold leading-10 text-3xl md:text-4xl mt-8">
-                    Votre projet, notre priorité
+                <h2 className={cn(
+                    title1.className,
+                    'text-black font-semibold leading-10 text-3xl md:text-4xl mt-8'
+                )}>
+                    {lang.banner.subtitle}
                 </h2>
                 <p className="text-base lg:text-xl my-5">
-                    Des <span className="font-bold">solutions IT exclusives</span> pour atteindre vos
-                    objectifs commerciaux. Faites confiance à notre expertise et obtenez des résultats concrets
-                    dès maintenant.
+                    <RenderHtmlContent content={lang.banner.contentTitle}/>
                 </p>
                 <Button
                     variant={'outline'}
@@ -38,6 +46,6 @@ export default function Banner() {
                     alt="Code Chillo Tech"
                 />
             </div>
-        </div>
+        </SectionLayout>
     )
 }
