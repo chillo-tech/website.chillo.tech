@@ -43,7 +43,7 @@ export default function HowItsWork({className}) {
             <div className="relative wrap overflow-hidden">
                 <div className="absolute border-blue h-full border md:left-1/2 sm:left-[4%]"></div>
                 {lang.how_its_work.howItWorks.map((howItWork, index) => (
-                    <HowItWorkItem item={howItWork} reverse={(index % 2) === 0}/>
+                    <HowItWorkItem key={index} item={howItWork} reverse={(index % 2) === 0}/>
                 ))}
             </div>
         </SectionLayout>
