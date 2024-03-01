@@ -1,14 +1,11 @@
 import { title2 } from '@/assets/fonts';
+import RenderHtmlContent from '../RenderHTMLContent';
 import { cn } from '@/lib/utils';
-import React from 'react';
-import RenderHtmlContent from '../../RenderHTMLContent';
 
 interface SectionTitleProps extends React.HTMLAttributes<HTMLDivElement> {
   contentClassName?: string;
   subtitle?: string;
 }
-
-interface SectionLayoutProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 const SectionTitle = ({
   subtitle,
@@ -39,8 +36,4 @@ const SectionTitle = ({
   );
 };
 
-const SectionLayout = ({ className, children }: SectionLayoutProps) => {
-  return <div className={cn('relative', className)}>{children}</div>;
-};
-
-export { SectionTitle, SectionLayout };
+export { SectionTitle };

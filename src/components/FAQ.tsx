@@ -1,25 +1,26 @@
 import { cn } from '@/lib/utils';
 import React from 'react';
-import { SectionLayout, SectionTitle } from './layout/SectionLayout';
+import { Section } from './commons/section/Section';
 import { lang } from '@/lang';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '../ui/accordion';
+} from './ui/accordion';
 import { paragraph } from '@/assets/fonts';
-import RenderHtmlContent from '../RenderHTMLContent';
+import RenderHtmlContent from './commons/RenderHTMLContent';
+import { SectionTitle } from './commons/section/SectionTitle';
 
 interface FAQSectionProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 function FAQ({ className }: FAQSectionProps) {
   return (
-    <SectionLayout className={cn(className)}>
+    <Section className={cn(className)}>
       <SectionTitle className="bg-light-gray" subtitle={lang.faq.subtitle}>
         <RenderHtmlContent content={lang.faq.title} />
       </SectionTitle>
-      <div className="container py-4 md:py-10 md:px-12 lg:px-24">
+      <article className="container py-4 md:py-10 md:px-12 lg:px-24">
         <h3 className="font-semibold text-3xl mb-4">{lang.faq.contentTitle}</h3>
         <Accordion type="single" collapsible className="w-full">
           {lang.faq.faqs.map((faq, index) => (
@@ -34,8 +35,8 @@ function FAQ({ className }: FAQSectionProps) {
             </AccordionItem>
           ))}
         </Accordion>
-      </div>
-    </SectionLayout>
+      </article>
+    </Section>
   );
 }
 

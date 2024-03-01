@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
 interface NavigationLinksProps extends React.HTMLAttributes<HTMLDivElement> {
-  linkClassName: string;
+  linkClassName?: string;
 }
 
 function NavigationLinks({ className, linkClassName }: NavigationLinksProps) {

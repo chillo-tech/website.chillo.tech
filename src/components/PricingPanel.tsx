@@ -1,13 +1,13 @@
 import React from 'react';
-import { SectionLayout } from './layout/SectionLayout';
+import { Section } from './commons/section/Section';
 import { cn } from '@/lib/utils';
 import { lang } from '@/lang';
 import { paragraph, title2 } from '@/assets/fonts';
 import { VariantProps, cva } from 'class-variance-authority';
-import { Icons } from '../Icons';
-import RenderHtmlContent from '../RenderHTMLContent';
-import { Button } from '../ui/button';
-import { Separator } from '../ui/separator';
+import { Icons } from './commons/Icons';
+import RenderHtmlContent from './commons/RenderHTMLContent';
+import { Button } from './ui/button';
+import { Separator } from './ui/separator';
 
 interface PricingPanelProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -110,7 +110,7 @@ PriceTable.displayName = 'PriceTable';
 
 function PricingPanel({ className }: PricingPanelProps) {
   return (
-    <SectionLayout
+    <Section
       className={cn(
         'rounded-md md:flex justify-between bg-light-gray p-5 min-h-[30rem]',
         className
@@ -154,7 +154,7 @@ function PricingPanel({ className }: PricingPanelProps) {
           priceSuffix={`\\${lang.pricing.defaultPeriodicity}`}
         />
       </div>
-    </SectionLayout>
+    </Section>
   );
 }
 
