@@ -1,4 +1,4 @@
-import { Roboto, Poppins, Montserrat } from 'next/font/google';
+import {Montserrat, Poppins, Roboto} from 'next/font/google';
 
 export const paragraph = Roboto({
   weight: '300',

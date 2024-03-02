@@ -55,3 +55,4 @@ export default function Banner({ className }: BannerProps) {
     </Section>
   );
 }
+

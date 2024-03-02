@@ -1,6 +1,6 @@
-import { title2 } from '@/assets/fonts';
-import RenderHtmlContent from '../RenderHTMLContent';
-import { cn } from '@/lib/utils';
+import {title2} from '@/assets/fonts';
+import RenderHtmlContent from '@/components/commons/RenderHTMLContent';
+import {cn} from '@/lib/utils';
 
 interface SectionTitleProps extends React.HTMLAttributes<HTMLDivElement> {
   contentClassName?: string;
@@ -28,12 +28,12 @@ const SectionTitle = ({
         {children}
       </h2>
       {subtitle && (
-        <p className="mx-auto my-2 md:px-12 lg:px-24 text-center">
+        <div className="mx-auto my-2 md:px-12 lg:px-24 text-center">
           <RenderHtmlContent content={subtitle} />
-        </p>
+        </div>
       )}
     </div>
   );
 };
 
-export { SectionTitle };
+export default SectionTitle;

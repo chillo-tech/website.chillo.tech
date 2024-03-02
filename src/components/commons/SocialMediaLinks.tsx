@@ -1,27 +1,36 @@
 import Link from 'next/link';
-import { Icons } from './Icons';
+import Icons from '@/components/commons/Icons';
 import {
-  linkFacebook,
-  linkInstagram,
-  linkLinkedIn,
-  linkWhatsapp,
+    SOCIALS_TITLES,
+    socials,
 } from '@/config/links';
+import {cn} from "@/lib/utils";
+import {title2} from "@/assets/fonts";
 
-const SocialMediaLinks = () => {
+const icon = (label) => {
+    switch (label) {
+        case SOCIALS_TITLES.INSTAGRAM :
+            return <Icons.instagram className="w-6 h-6" />
+        case SOCIALS_TITLES.LINKEDIN :
+            return <Icons.in className="w-6 h-6" />
+        case SOCIALS_TITLES.FACEBOOK :
+            return <Icons.facebook className="w-6 h-6" />
+        case SOCIALS_TITLES.WHATSAPP :
+            return <Icons.whatsapp className="w-6 h-6" />
+    }
+}
+
+const SocialMediaLinks = ({className}) => {
   return (
-    <div className="flex justify-between items-center gap-3">
-      <Link href={linkLinkedIn.href} title={linkLinkedIn.title}>
-        <Icons.in className="w-6 h-6" />
-      </Link>
-      <Link href={linkInstagram.href} title={linkInstagram.title}>
-        <Icons.instagram className="w-6 h-6" />
-      </Link>
-      <Link href={linkFacebook.href} title={linkFacebook.title}>
-        <Icons.facebook className="w-6 h-6" />
-      </Link>
-      <Link href={linkWhatsapp.href} title={linkWhatsapp.title}>
-        <Icons.whatsapp className="w-6 h-6" />
-      </Link>
+    <div className={cn(
+      'flex justify-between items-center gap-3',
+        className
+    )}>
+        {socials.map((social, index) => (
+            <Link href={social.href} title={social.title}>
+                {icon(social.title)}
+            </Link>
+        ))}
     </div>
   );
 };

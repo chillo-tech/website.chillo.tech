@@ -34,4 +34,4 @@ const HowItWorkItem = (props: HowItWorkItemProps) => {
   );
 };
 
-export { HowItWorkItem };
+export default HowItWorkItem;

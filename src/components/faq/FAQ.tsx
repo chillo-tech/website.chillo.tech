@@ -1,23 +1,24 @@
 import { cn } from '@/lib/utils';
 import React from 'react';
-import { Section } from './commons/section/Section';
+import Section from '@/components/commons/section/Section';
 import { lang } from '@/lang';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from './ui/accordion';
+} from '@/components/ui/accordion';
 import { paragraph } from '@/assets/fonts';
-import RenderHtmlContent from './commons/RenderHTMLContent';
-import { SectionTitle } from './commons/section/SectionTitle';
+import RenderHtmlContent from '@/components/commons/RenderHTMLContent';
+import SectionTitle from '@/components/commons/section/SectionTitle';
+import {SECTIONS_IDS} from "@/config/links";
 
 interface FAQSectionProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 function FAQ({ className }: FAQSectionProps) {
   return (
-    <Section className={cn(className)}>
-      <SectionTitle className="bg-light-gray" subtitle={lang.faq.subtitle}>
+    <Section id={SECTIONS_IDS.FAQ} className={cn(className)}>
+      <SectionTitle className="bg-light-gray-50" subtitle={lang.faq.subtitle}>
         <RenderHtmlContent content={lang.faq.title} />
       </SectionTitle>
       <article className="container py-4 md:py-10 md:px-12 lg:px-24">

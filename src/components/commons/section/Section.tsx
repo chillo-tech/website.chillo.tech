@@ -1,11 +1,12 @@
-import { cn } from '@/lib/utils';
+import {cn} from '@/lib/utils';
 import React from 'react';
 
-interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {
+}
 
 
-const Section = ({ className, children }: SectionProps) => {
-  return <div className={cn('relative', className)}>{children}</div>;
+const Section = ({id, className, children}: SectionProps) => {
+    return <section id={id} className={cn('relative', className)}>{children}</section>;
 };
 
-export { Section };
+export default Section;

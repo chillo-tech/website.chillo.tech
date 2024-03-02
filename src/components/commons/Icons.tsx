@@ -18,7 +18,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook, FaRegCheckCircle, FaCrown, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import Image from 'next/image';
 
-export const Icons = {
+const Icons = {
   crown: FaCrown,
   check: FaRegCheckCircle,
   email: MailIcon,
@@ -81,3 +81,5 @@ export const Icons = {
     </svg>
   ),
 };
+
+export default Icons
