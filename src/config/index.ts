@@ -1,4 +1,4 @@
-import * as links from './links';
+import * as links from '@/config/links';
 
 export type SiteConfig = typeof siteConfig;
 

@@ -1,6 +1,6 @@
-import { ROUTE_HOME } from '@/config/routes';
+import {ROUTE_HOME} from '@/config/routes';
 import Link from 'next/link';
-import { Icons } from './Icons';
+import Icons from '@/components/commons/Icons';
 
 const Logo = () => {
   return (

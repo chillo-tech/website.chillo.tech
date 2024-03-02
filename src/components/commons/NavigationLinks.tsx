@@ -1,11 +1,16 @@
+'use client';
+
 import { title2 } from '@/assets/fonts';
 import { siteConfig } from '@/config';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
-interface NavigationLinksProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface NavigationLinksProps extends React.HTMLAttributes<HTMLDivElement> {
+  linkClassName?: string;
+    closeMenu?: any;
+}
 
-function NavigationLinks({ className, linkClassName }: NavigationLinksProps) {
+function NavigationLinks({ className, linkClassName, closeMenu = () => 1}: NavigationLinksProps) {
   return (
     <nav
       className={cn(
@@ -20,6 +25,7 @@ function NavigationLinks({ className, linkClassName }: NavigationLinksProps) {
             'text-blue font-light relative after:bg-gradient-to-r from-[#AAB6867E] to-[#98C11F] after:absolute after:h-1 after:w-0 after:-bottom-2 after:left-0 hover:after:w-full after:transition-all after:duration-300',
             linkClassName
           )}
+          onClick={(e) => closeMenu(e)}
           href={link.href}>
           {link.title}
         </Link>
