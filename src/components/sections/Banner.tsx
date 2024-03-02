@@ -25,9 +25,9 @@ export default function Banner({className}) {
                 )}>
                     {lang.banner.subtitle}
                 </h2>
-                <p className="text-base lg:text-xl my-5">
+                <div className="text-base lg:text-xl my-5">
                     <RenderHtmlContent content={lang.banner.contentTitle}/>
-                </p>
+                </div>
                 <Button
                     variant={'outline'}
                     className={cn(

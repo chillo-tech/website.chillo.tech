@@ -31,9 +31,9 @@ const SectionTitle = ({
         {children}
       </h2>
       {subtitle && (
-        <p className="mx-auto my-2 md:px-12 lg:px-24 text-center">
+        <div className="mx-auto my-2 md:px-12 lg:px-24 text-center">
           <RenderHtmlContent content={subtitle} />
-        </p>
+        </div>
       )}
     </div>
   );
