@@ -8,16 +8,18 @@ import { Icons } from './commons/Icons';
 import RenderHtmlContent from './commons/RenderHTMLContent';
 import { Button } from './ui/button';
 import { Separator } from './ui/separator';
+import { ROUTE_CONTACT } from '@/config/routes';
+import Link from 'next/link';
 
 interface PricingPanelProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 const priceTableVariants = cva(
-  'container border-2 border-gold relative p-5 rounded-md min-w-48 md:min-w-80',
+  'container max-w-96 border-2 relative p-5 rounded-md min-w-48 md:min-w-80',
   {
     variants: {
       variant: {
-        standard: 'bg-white text-black',
-        pro: 'bg-blue text-white',
+        standard: 'bg-white border-black text-black',
+        pro: 'bg-blue border-gold text-white',
       },
       size: {
         default: 'min-h-80',
@@ -66,7 +68,7 @@ export const PriceTable = React.forwardRef<HTMLDivElement, PriceTableProps>(
         ref={ref}
         {...props}>
         <Icons.crown
-          color={variant == 'standard' ? 'blue' : 'gold'}
+          color={variant == 'standard' ? 'black' : 'gold'}
           className={cn(
             'absolute left-1/2 top-0 transform -translate-x-1/2 -translate-y-1/2 z-10 w-12 h-12'
           )}
@@ -81,12 +83,14 @@ export const PriceTable = React.forwardRef<HTMLDivElement, PriceTableProps>(
         </div>
 
         <div className="flex flex-col gap-2 w-full">
-          <Button className="inline-block" variant={'primary'}>
-            Souscrire
+          <Button className="inline-block rounded-md" variant={'primary'}>
+            {lang.button.suscribe}
           </Button>
-          <Button className="inline-block" variant={'secondary'}>
-            Nous-Contactez
-          </Button>
+          <Link className="inline-block w-full" href={ROUTE_CONTACT}>
+            <Button className="inline-block w-full" variant={'secondary'}>
+              {lang.button.contact}
+            </Button>
+          </Link>
         </div>
         <Separator className="bg-dark-gray mt-6" />
         <ul className="p-4 w-fit space-y-4">
@@ -95,10 +99,10 @@ export const PriceTable = React.forwardRef<HTMLDivElement, PriceTableProps>(
               className="relative flex items-center pl-6"
               key={`service-${index}`}>
               <Icons.check
-                color={variant == 'standard' ? 'blue' : 'white'}
+                color={variant == 'standard' ? 'black' : 'white'}
                 className="absolute w-4 h-4 left-0 inline-block"
               />
-              {service}
+              <RenderHtmlContent content={service} />
             </li>
           ))}
         </ul>
@@ -112,17 +116,21 @@ function PricingPanel({ className }: PricingPanelProps) {
   return (
     <Section
       className={cn(
-        'rounded-md md:flex justify-between bg-light-gray p-5 min-h-[30rem]',
+        'rounded-md md:flex gap-2 justify-between bg-light-gray p-5 min-h-[30rem]',
         className
       )}>
       <div className={cn('space-y-4 py-4 md:max-w-80')}>
-        <h2 className={cn(title2.className, 'text-blue text-2xl md:text-4xl')}>
+        <h2
+          className={cn(
+            title2.className,
+            'text-blue text-2xl truncate md:text-4xl'
+          )}>
           {lang.pricing.title}
         </h2>
-        <h3 className={cn(title2.className, 'text-blue pl-2 truncate text-xl')}>
+        <h3 className={cn(title2.className, 'text-blue pl-2 text-xl')}>
           {lang.pricing.subtitle}
         </h3>
-        <p className={cn(paragraph.className, 'text-black pl-3')}>
+        <p className={cn(paragraph.className, 'text-black pl-3 pb-8')}>
           <RenderHtmlContent content={lang.pricing.description} />
         </p>
       </div>
@@ -143,11 +151,8 @@ function PricingPanel({ className }: PricingPanelProps) {
         <PriceTable
           variant={'pro'}
           size={'large'}
-          price={15.5}
-          services={[
-            ...lang.pricing.standard.services,
-            ...lang.pricing.pro.services,
-          ]}
+          price={15}
+          services={lang.pricing.pro.services}
           title={lang.pricing.pro.title}
           subtitle={lang.pricing.pro.subtitle}
           pricePrefix={lang.pricing.currency}

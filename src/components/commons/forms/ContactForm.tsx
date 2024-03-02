@@ -23,6 +23,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { toast } from '@/components/ui/use-toast';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
+import RenderHtmlContent from '../RenderHTMLContent';
 
 const FormSchema = z
   .object({
@@ -54,16 +55,10 @@ const ContactForm = () => {
 
   const onSubmit = (data: z.infer<typeof FormSchema>) => {
     try {
-      // mutation.mutate(data);
+      //TODO: mutation.mutate(data);
       toast({
         title: 'Success',
-        description: (
-          <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-            <code className="text-white">
-              Votre demande à bien été pris en compte.
-            </code>
-          </pre>
-        ),
+        description: 'Votre demande à bien été pris en compte.',
       });
     } catch (error) {
       toast({
@@ -85,7 +80,10 @@ const ContactForm = () => {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="w-full px-12 mx-auto space-y-6">
+          className="w-full px-8 mx-auto space-y-6">
+          <legend>
+            <RenderHtmlContent content={contactPage.form.legend} />
+          </legend>
           <FormField
             control={form.control}
             name={'email'}
@@ -131,10 +129,16 @@ const ContactForm = () => {
             )}
           />
           <Button variant={'primary'} type="submit">
-            {lang.button.send}
+            {contactPage.form.submitButton}
           </Button>
           <Separator className="my-6 bg-light-gray" />
-          <FormDescription>@{siteConfig.appName}.</FormDescription>
+          <FormDescription className="text-black/70">
+            {contactPage.form.thanks} |{' '}
+            <span className="font-semibold text-blue">
+              {siteConfig.appName}
+            </span>
+            .
+          </FormDescription>
         </form>
       </Form>
     </>

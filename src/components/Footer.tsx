@@ -22,20 +22,13 @@ function Footer() {
           <h2
             className={cn(
               title1.className,
-              'text-blue font-semibold leading-10 text-2xl md:text-3xl'
+              'text-blue font-bold leading-10 text-xl md:text-2xl'
             )}>
             {lang.footer.title}
           </h2>
           <p className="w-[70%] mx-auto">{lang.footer.subtitle}</p>
-          <Link href={ROUTE_CONTACT}>
-            <Button
-              variant={'outline'}
-              className={cn(
-                'bg-green border-none font-semibold text-white hover:bg-green/80 rounded-full',
-                title2.className
-              )}>
-              {lang.button.contact}
-            </Button>
+          <Link className="inline-flex mt-2" href={ROUTE_CONTACT}>
+            <Button variant={'primary'}>{lang.button.contact}</Button>
           </Link>
         </section>
         <section className="mt-16 w-full flex flex-col lg:flex-row gap-8 md:gap-0 justify-between">

@@ -50,14 +50,7 @@ export default function Header() {
               </div>
               <div className="flex items-center gap-2">
                 <Link href={ROUTE_CONTACT}>
-                  <Button
-                    variant={'outline'}
-                    className={cn(
-                      'bg-green border-none font-semibold text-white hover:bg-green/80 rounded-full',
-                      title2.className
-                    )}>
-                    {lang.button.contact}
-                  </Button>
+                  <Button variant={'primary'}>{lang.button.contact}</Button>
                 </Link>
                 {toggleMenu ? (
                   <Icons.menu
