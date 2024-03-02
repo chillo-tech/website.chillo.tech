@@ -8,6 +8,8 @@ import { lang } from '@/lang';
 import { Button } from '@/components/ui/button';
 import Logo from '@/components/commons/Logo';
 import NavigationLinks from '@/components/commons/NavigationLinks';
+import Link from 'next/link';
+import { ROUTE_CONTACT } from '@/config/routes';
 
 export default function Header() {
   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
@@ -47,14 +49,16 @@ export default function Header() {
                 />
               </div>
               <div className="flex items-center gap-2">
-                <Button
-                  variant={'outline'}
-                  className={cn(
-                    'bg-green border-none font-semibold text-white hover:bg-green/80 rounded-full',
-                    title2.className
-                  )}>
-                  {lang.contact_btn}
-                </Button>
+                <Link href={ROUTE_CONTACT}>
+                  <Button
+                    variant={'outline'}
+                    className={cn(
+                      'bg-green border-none font-semibold text-white hover:bg-green/80 rounded-full',
+                      title2.className
+                    )}>
+                    {lang.button.contact}
+                  </Button>
+                </Link>
                 {toggleMenu ? (
                   <Icons.menu
                     name={'menu'}

@@ -34,7 +34,7 @@ function Footer() {
                 'bg-green border-none font-semibold text-white hover:bg-green/80 rounded-full',
                 title2.className
               )}>
-              {lang.contact_btn}
+              {lang.button.contact}
             </Button>
           </Link>
         </section>

@@ -40,7 +40,7 @@ export default function Banner({ className }: BannerProps) {
             'bg-green border-none font-semibold text-white hover:bg-green/80 rounded-full w-max',
             title2.className
           )}>
-          {lang.contact_btn}
+          {lang.button.contact}
         </Button>
       </article>
       <div className="md:w-1/2 mt-8 md:mt-0 flex justify-center md:justify-end sm:w-full">
