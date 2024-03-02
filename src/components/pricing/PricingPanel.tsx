@@ -1,33 +1,37 @@
 import React from 'react';
 import Section from '@/components/commons/section/Section';
-import {cn} from '@/lib/utils';
-import {lang} from '@/lang';
-import {paragraph, title2} from '@/assets/fonts';
-import RenderHtmlContent from "@/components/commons/RenderHTMLContent";
-import PriceTable from "@/components/pricing/PriceTable";
-import {SECTIONS_IDS} from "@/config/links";
+import { cn } from '@/lib/utils';
+import { lang } from '@/lang';
+import { paragraph, title2 } from '@/assets/fonts';
+import RenderHtmlContent from '@/components/commons/RenderHTMLContent';
+import PriceTable from '@/components/pricing/PriceTable';
+import { SECTIONS_IDS } from '@/config/links';
 
 interface PricingPanelProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 function PricingPanel({ className }: PricingPanelProps) {
   return (
-      <Section
-          id={SECTIONS_IDS.PRICING}
+    <Section
+      id={SECTIONS_IDS.PRICING}
       className={cn(
-        'rounded-md md:flex justify-between bg-light-gray-50 p-5 min-h-[30rem]',
+        'rounded-md md:flex gap-2 justify-between bg-gray p-5 min-h-[30rem]',
         className
       )}>
-      <section className={cn('space-y-4 py-4 md:max-w-80')}>
-        <h2 className={cn(title2.className, 'text-blue text-2xl md:text-4xl')}>
+      <div className={cn('space-y-4 py-4 md:max-w-80')}>
+        <h2
+          className={cn(
+            title2.className,
+            'text-blue text-2xl truncate md:text-4xl'
+          )}>
           {lang.pricing.title}
         </h2>
-        <h3 className={cn(title2.className, 'text-blue pl-2 truncate text-xl')}>
+        <h3 className={cn(title2.className, 'text-blue pl-2 text-xl')}>
           {lang.pricing.subtitle}
         </h3>
-        <div className={cn(paragraph.className, 'text-black pl-3')}>
+        <p className={cn(paragraph.className, 'text-black pl-3 pb-8')}>
           <RenderHtmlContent content={lang.pricing.description} />
-        </div>
-      </section>
+        </p>
+      </div>
 
       <div
         className={cn(
@@ -45,18 +49,15 @@ function PricingPanel({ className }: PricingPanelProps) {
         <PriceTable
           variant={'pro'}
           size={'large'}
-          price={15.5}
-          services={[
-            ...lang.pricing.standard.services,
-            ...lang.pricing.pro.services,
-          ]}
+          price={15}
+          services={lang.pricing.pro.services}
           title={lang.pricing.pro.title}
           subtitle={lang.pricing.pro.subtitle}
           pricePrefix={lang.pricing.currency}
           priceSuffix={`\\${lang.pricing.defaultPeriodicity}`}
         />
       </div>
-      </Section>
+    </Section>
   );
 }
 
