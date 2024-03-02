@@ -1,20 +1,14 @@
 import {
-  SunIcon,
   HamburgerMenuIcon,
-  MoonIcon,
   GitHubLogoIcon,
   LinkedInLogoIcon,
   TriangleUpIcon,
 } from '@radix-ui/react-icons';
 import {
   LucideProps,
-  GraduationCap,
   Contact,
   MailIcon,
   XIcon,
-  MessagesSquareIcon,
-  BookOpenText,
-  SchoolIcon,
   MessageSquareTextIcon,
   GlobeIcon,
   LogOutIcon,
@@ -24,8 +18,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook, FaRegCheckCircle, FaCrown, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import Image from 'next/image';
 
-export const Icons = {
-  book: BookOpenText,
+const Icons = {
   crown: FaCrown,
   check: FaRegCheckCircle,
   email: MailIcon,
@@ -33,21 +26,16 @@ export const Icons = {
   instagram: FaInstagram,
   whatsapp: FaWhatsapp,
   plus: PlusIcon,
-  sun: SunIcon,
   in: LinkedInLogoIcon,
   lang: GlobeIcon,
   logout: LogOutIcon,
-  moon: MoonIcon,
   message: MessageSquareTextIcon,
   contact: Contact,
   github: GitHubLogoIcon,
   arrow_top: TriangleUpIcon,
-  school_hat: GraduationCap,
-  school: SchoolIcon,
   menu: HamburgerMenuIcon,
   google: FcGoogle,
   x: XIcon,
-  forum: MessagesSquareIcon,
   arrow_down: (props: LucideProps) => (
     <svg
       width="189"
@@ -93,3 +81,5 @@ export const Icons = {
     </svg>
   ),
 };
+
+export default Icons

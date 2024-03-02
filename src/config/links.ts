@@ -1,4 +1,20 @@
-import { lang } from '@/lang';
+import {lang} from '@/lang';
+
+export const SOCIALS_TITLES = {
+  LINKEDIN: 'LinkedIn',
+  TWITTER: 'Twitter',
+  FACEBOOK: 'Facebook',
+  WHATSAPP: 'Whatsapp',
+  INSTAGRAM: 'Instagram'
+}
+
+export const SECTIONS_IDS = {
+  ABOUT_US: 'about-us',
+  HOW_ITS_WORK: 'how-it-works',
+  SERVICE: 'services',
+  PRICING: 'tarifs',
+  FAQ: 'faq'
+}
 
 interface Link {
   title: string;
@@ -6,16 +22,25 @@ interface Link {
 }
 
 export const linkLinkedIn: Link = {
-  title: 'LinkedIn',
-  href: 'http://www.linkedin.com',
+  title: SOCIALS_TITLES.LINKEDIN,
+  href: 'http://www.linkedin.com'
 };
 export const linkTwitter: Link = {
-  title: 'Twitter',
-  href: 'http://twitter.com',
+  title: SOCIALS_TITLES.TWITTER,
+  href: 'http://twitter.com'
 };
-export const linkFacebook: Link = { title: 'Facebook', href: 'http://' };
-export const linkWhatsapp: Link = { title: 'Whatsapp', href: 'http://' };
-export const linkInstagram: Link = { title: 'Instagram', href: 'http://' };
+export const linkFacebook: Link = {
+  title: SOCIALS_TITLES.FACEBOOK,
+  href: 'http://'
+};
+export const linkWhatsapp: Link = {
+  title: SOCIALS_TITLES.WHATSAPP,
+  href: 'http://'
+};
+export const linkInstagram: Link = {
+  title: SOCIALS_TITLES.INSTAGRAM,
+  href: 'http://'
+};
 
 export const socials: Link[] = [
   linkLinkedIn,
@@ -26,11 +51,11 @@ export const socials: Link[] = [
 ];
 
 export const navigations: Link[] = [
-  { title: lang.navigation.about, href: '#about-us' },
-  { title: lang.navigation.how_it_works, href: '#how-it-works' },
-  { title: lang.navigation.services, href: '#services' },
-  { title: lang.navigation.pricing, href: '#tarifs' },
-  { title: lang.navigation.faq, href: '#faq' },
+  { title: lang.navigation.about, href: `#${SECTIONS_IDS.ABOUT_US}` },
+  { title: lang.navigation.how_it_works, href: `#${SECTIONS_IDS.HOW_ITS_WORK}` },
+  { title: lang.navigation.services, href: `#${SECTIONS_IDS.SERVICE}` },
+  { title: lang.navigation.pricing, href: `#${SECTIONS_IDS.PRICING}` },
+  { title: lang.navigation.faq, href: `#${SECTIONS_IDS.FAQ}` },
 ];
 
 export const privacyPolicyUrl: Link = {

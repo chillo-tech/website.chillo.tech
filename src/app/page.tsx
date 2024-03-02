@@ -1,16 +1,15 @@
-import FAQ from '@/components/sections/FAQ';
-import PricingPanel from '@/components/sections/PricingPanel';
-
-import Banner from '@/components/sections/Banner';
-import HowItsWork from "@/components/sections/HowItsWork";
+import FAQ from '@/components/faq/FAQ';
+import PricingPanel from '@/components/pricing/PricingPanel';
+import Banner from '@/components/banner/Banner';
+import HowItsWork from '@/components/how-it-works/HowItsWork';
 
 export default function Home() {
     return (
         <div className="space-y-24">
-            <Banner />
-            <HowItsWork />
-            <PricingPanel />
-            <FAQ />
+            <Banner/>
+            <HowItsWork/>
+            <PricingPanel/>
+            <FAQ/>
         </div>
     );
 }
