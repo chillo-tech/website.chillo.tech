@@ -1,7 +1,5 @@
 import * as links from '@/config/links';
 
-export type SiteConfig = typeof siteConfig;
-
 export const siteConfig = {
   appName: 'Chillo Services',
   title:
@@ -11,3 +9,5 @@ export const siteConfig = {
   mainNavLinks: links.navigations,
   links,
 };
+
+export type SiteConfig = typeof siteConfig;

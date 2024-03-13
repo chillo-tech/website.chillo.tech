@@ -11,6 +11,7 @@ import NavigationLinks from '@/components/commons/NavigationLinks';
 import { ROUTE_CONTACT } from '@/config/routes';
 import Link from 'next/link';
 import SocialMediaLinks from '@/components/commons/SocialMediaLinks';
+import { SECTIONS_IDS } from '@/config/links';
 
 function Header() {
   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
@@ -20,10 +21,10 @@ function Header() {
   };
 
   return (
-    <header className="w-full h-max flex justify-center py-5 px-3 sticky top-0 z-40 bg-white">
-      <section className="container h-max w-full hidden lg:block">
-        <section className="w-full relative py-2">
-          <section className="flex justify-between">
+    <header id={SECTIONS_IDS.HEADER} className="w-full h-max flex justify-center py-5 px-3 sticky top-0 z-40 bg-white">
+      <div className="container h-max w-full hidden lg:block">
+        <div className="w-full relative py-2">
+          <div className="flex justify-between">
             <Logo />
             <div className="flex items-center gap-3">
               <div className="static w-full bg-white flex items-center px-5">
@@ -45,11 +46,11 @@ function Header() {
                 </Link>
               </div>
             </div>
-          </section>
-        </section>
-      </section>
-      <section className="container h-max w-full block lg:hidden">
-        <section className="flex justify-between">
+          </div>
+        </div>
+      </div>
+      <div className="container h-max w-full block lg:hidden">
+        <div className="flex justify-between">
           <Logo />
           <div className="flex items-center">
             <div className={!toggleMenu ? 'hidden' : 'block'}>
@@ -78,8 +79,8 @@ function Header() {
               />
             )}
           </div>
-        </section>
-        <section
+        </div>
+        <nav
           className={`h-screen w-screen py-8 pl-5 ${
             toggleMenu ? ' hidden' : ''
           }`}>
@@ -99,8 +100,8 @@ function Header() {
             </Button>
           </Link>
           <SocialMediaLinks className="justify-start mt-5" />
-        </section>
-      </section>
+        </nav>
+      </div>
     </header>
   );
 }

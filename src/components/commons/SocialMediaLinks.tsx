@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Icons from '@/components/commons/Icons';
-import { SOCIALS_TITLES, socials } from '@/config/links';
+import { SOCIALS_TITLES, SOCIALS } from '@/config/links';
 import { cn } from '@/lib/utils';
 import React from 'react';
 
@@ -22,7 +22,7 @@ const SocialMediaLinks = ({
 }: React.HTMLAttributes<HTMLDivElement>) => {
   return (
     <div className={cn('flex justify-between items-center gap-3', className)}>
-      {socials.map((social, index) => (
+      {SOCIALS.map((social, index) => (
         <Link key={index} href={social.href} title={social.title}>
           {icon(social.title)}
         </Link>

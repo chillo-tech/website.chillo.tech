@@ -67,9 +67,11 @@ const pricingSection = {
 const faqs: FAQ[] = [
   {
     question: 'Qui est le client idéal de Chillo Tech ?',
-    answer: ` Chillo Services est le partenaire parfait pour les entrepreneurs et les entreprises de toutes tailles qui cherchent à développer des logiciels ou à améliorer leurs opérations avec la puissance de la technologie avancée. Nous comprenons les obstacles liés à l'embauche d'un développeur à plein temps - le temps passé à vérifier les candidats, les coûts élevés et le risque de compétences inadaptées.<br/><br/>
+    answer: `Chillo Services est le partenaire parfait pour les entrepreneurs et les entreprises de toutes tailles qui cherchent à développer des logiciels ou à améliorer leurs opérations avec la puissance de la technologie avancée. Nous comprenons les obstacles liés à l'embauche d'un développeur à plein temps - le temps passé à vérifier les candidats, les coûts élevés et le risque de compétences inadaptées.<br/><br/>
     Au lieu de cela, Chillo Services propose une solution bien plus efficace et économique. Nous offrons un accès à un vaste pool de développeurs multi-talentueux, pré-vérifiés pour leurs compétences exceptionnelles et leur expertise diversifiée. Cela vous permet d'utiliser des compétences de développement de haute qualité sans supporter le fardeau d'un salaire à plein temps, vous faisant économiser des ressources substantielles.<br/><br/>
-    Mais ce n'est pas tout. Avec notre système de gestion de projet robuste, la création de nouvelles tâches et le suivi de la progression n'ont jamais été aussi faciles. Il vous suffit d'ajouter vos exigences et de suivre la progression en temps réel, garantissant que votre projet est toujours sur la bonne voie. Ainsi, si vous cherchez à optimiser votre entreprise, à élever votre paysage numérique et ce, de manière économique, Chillo Services est votre choix idéal. Laissez-nous gérer les complexités du développement logiciel pendant que vous vous concentrez sur ce qui importe le plus - faire croître votre entreprise.
+    Mais ce n'est pas tout. Avec notre système de gestion de projet robuste, 
+    la création de nouvelles tâches et le suivi de la progression n'ont jamais été aussi faciles. 
+    Il vous suffit d'ajouter vos exigences et de suivre la progression en temps réel, garantissant que votre projet est toujours sur la bonne voie. Ainsi, si vous cherchez à optimiser votre entreprise, à élever votre paysage numérique et ce, de manière économique, Chillo Services est votre choix idéal. Laissez-nous gérer les complexités du développement logiciel pendant que vous vous concentrez sur ce qui importe le plus - faire croître votre entreprise.
     `,
   },
   {

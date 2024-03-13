@@ -11,7 +11,7 @@ import Link from 'next/link';
 import RenderHtmlContent from '../commons/RenderHTMLContent';
 
 const priceTableVariants = cva(
-  'container max-w-96 border-2 relative p-5 rounded-md min-w-48 md:min-w-80',
+  'container border-2 relative p-5 rounded-md max-w-96 min-w-48 md:min-w-80',
   {
     variants: {
       variant: {
