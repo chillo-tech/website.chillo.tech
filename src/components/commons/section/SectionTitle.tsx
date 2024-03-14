@@ -22,7 +22,7 @@ const SectionTitle = ({
       <h2
         className={cn(
           title2.className,
-          'relative text-2xl lg:text-5xl leading-10 lg:leading-[4rem] text-center',
+          'relative text-2xl lg:text-5xl leading-10 lg:leading-[4rem] text-center font-bold',
           contentClassName
         )}>
         {children}
