@@ -28,9 +28,9 @@ function PricingPanel({ className }: PricingPanelProps) {
         <h3 className={cn(title2.className, 'text-blue pl-2 text-xl')}>
           {lang.pricing.subtitle}
         </h3>
-        <p className={cn(paragraph.className, 'text-black pl-3 pb-8')}>
+        <div className={cn(paragraph.className, 'text-black pl-3 pb-8')}>
           <RenderHtmlContent content={lang.pricing.description} />
-        </p>
+        </div>
       </div>
 
       <div

@@ -20,10 +20,10 @@ function Page() {
           )}>
           {lang.contactPage.title}
         </h1>
-        <p
+        <div
           className={cn(title2.className, 'text-center text-xl w-fit mx-auto')}>
           <RenderHtmlContent content={lang.contactPage.subtitle} />
-        </p>
+        </div>
       </div>
       <article className="w-fit mx-auto rounded-md border-2 border-gray p-2 md:px-2 md:p-6">
         <ContactForm />
