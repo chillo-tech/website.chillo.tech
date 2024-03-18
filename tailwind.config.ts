@@ -19,13 +19,17 @@ const config = {
     },
     extend: {
       colors: {
+        gradient: {
+          start: '#25326F',
+          end: '#2532BF',
+        },
         white: '#f7f7f8',
         black: '#191919',
         blue: '#25326F',
         green: '#98C11F',
         gray: '#E8E8E8',
         'light-gray': '#F5F6F8',
-        'light-gray-50': 'rgba(241,241,243,0.5)',
+        'light-gray-50': 'rgba(241,241,243,0.7)',
         'dark-gray': '#D5D6D8',
         'dark-gray-08': '#5a687914',
         gold: '#FFD600',

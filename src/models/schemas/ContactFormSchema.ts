@@ -8,9 +8,11 @@ const ContactFormSchema = z
         required_error: lang.errors.required,
       })
       .email(lang.errors.email),
-    message: z.string({
-      required_error: lang.errors.required,
-    }),
+    message: z
+      .string({
+        required_error: lang.errors.required,
+      })
+      .min(5),
   })
   .required({
     email: true,

@@ -77,8 +77,14 @@ export const PriceTable = React.forwardRef<HTMLDivElement, PriceTableProps>(
           </h2>
           <h3>{subtitle}</h3>
           {description && <p>{description}</p>}
+          <h2
+            className={cn(
+              title2.className,
+              'text-5xl text-center py-4 font-bold'
+            )}>
+            {pricePrefix} {price} <span className="text-sm">{priceSuffix}</span>
+          </h2>
         </div>
-
         <div className="flex flex-col gap-2 w-full">
           <Button className="inline-block rounded-md" variant={'primary'}>
             {lang.button.suscribe}

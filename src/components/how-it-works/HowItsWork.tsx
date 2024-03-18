@@ -5,13 +5,16 @@ import { lang } from '@/lang';
 import Section from '@/components/commons/section/Section';
 import SectionTitle from '@/components/commons/section/SectionTitle';
 import HowItWorkItem from '@/components/how-it-works/HowItWorkItem';
-import {SECTIONS_IDS} from "@/config/links";
+import { SECTIONS_IDS } from '@/config/links';
 
 interface HowItsWorkProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 function HowItsWork({ className }: HowItsWorkProps) {
   return (
-    <Section id={SECTIONS_IDS.HOW_ITS_WORK} className={cn(className)}>
+    <Section
+      id={SECTIONS_IDS.HOW_ITS_WORK}
+      className={cn(className)}
+      style={{ marginTop: 0 }}>
       <SectionTitle
         className="p-0 mb-4 md:mb-0"
         subtitle={lang.how_its_work.subtitle}>
@@ -31,4 +34,4 @@ function HowItsWork({ className }: HowItsWorkProps) {
   );
 }
 
-export default HowItsWork
+export default HowItsWork;

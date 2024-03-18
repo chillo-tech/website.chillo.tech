@@ -1,4 +1,4 @@
-import { HowItWork } from '@/lang/fr/content';
+import { HowItWork } from '@/lang/fr';
 import { paragraph, title2 } from '@/assets/fonts';
 import { cn } from '@/lib/utils';
 

@@ -7,9 +7,9 @@ import RenderHtmlContent from '@/components/commons/RenderHTMLContent';
 import PriceTable from '@/components/pricing/PriceTable';
 import { SECTIONS_IDS } from '@/config/links';
 
-interface PricingPanelProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface PricingSectionProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-function PricingPanel({ className }: PricingPanelProps) {
+function PricingSection({ className }: PricingSectionProps) {
   return (
     <Section
       id={SECTIONS_IDS.PRICING}
@@ -21,25 +21,31 @@ function PricingPanel({ className }: PricingPanelProps) {
         <h2
           className={cn(
             title2.className,
-            'text-blue text-2xl truncate md:text-4xl'
+            'text-transparent bg-clip-text bg-gradient-to-r from-blue to-blue via-gradient-end text-2xl font-bold truncate md:text-4xl'
           )}>
           {lang.pricing.title}
         </h2>
-        <h3 className={cn(title2.className, 'text-blue pl-2 text-xl')}>
+        <h3
+          className={cn(
+            title2.className,
+            'text-transparent bg-clip-text bg-gradient-to-r from-blue to-blue via-gradient-end pl-2 text-xl'
+          )}>
           {lang.pricing.subtitle}
         </h3>
-        <div className={cn(paragraph.className, 'text-black pl-3 pb-8')}>
-          <RenderHtmlContent content={lang.pricing.description} />
-        </div>
+        {lang.pricing.description && (
+          <div className={cn(paragraph.className, 'text-black pl-3 pb-8')}>
+            <RenderHtmlContent content={lang.pricing.description} />
+          </div>
+        )}
       </div>
 
       <div
         className={cn(
-          'self-center md:flex mt-8 md:mt-4 space-y-8 md:space-y-0 justify-between items-center gap-4'
+          'self-center lg:flex mt-8 md:mt-4 space-y-8 md:space-y-0 justify-between items-center gap-4'
         )}>
         <PriceTable
           variant={'standard'}
-          price={10}
+          price={lang.pricing.standard.price}
           services={lang.pricing.standard.services}
           title={lang.pricing.standard.title}
           subtitle={lang.pricing.standard.subtitle}
@@ -49,7 +55,7 @@ function PricingPanel({ className }: PricingPanelProps) {
         <PriceTable
           variant={'pro'}
           size={'large'}
-          price={15}
+          price={lang.pricing.pro.price}
           services={lang.pricing.pro.services}
           title={lang.pricing.pro.title}
           subtitle={lang.pricing.pro.subtitle}
@@ -61,4 +67,4 @@ function PricingPanel({ className }: PricingPanelProps) {
   );
 }
 
-export default PricingPanel;
+export default PricingSection;

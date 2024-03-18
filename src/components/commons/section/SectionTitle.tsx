@@ -1,6 +1,6 @@
-import {title2} from '@/assets/fonts';
+import { title2 } from '@/assets/fonts';
 import RenderHtmlContent from '@/components/commons/RenderHTMLContent';
-import {cn} from '@/lib/utils';
+import { cn } from '@/lib/utils';
 
 interface SectionTitleProps extends React.HTMLAttributes<HTMLDivElement> {
   contentClassName?: string;
@@ -23,6 +23,7 @@ const SectionTitle = ({
         className={cn(
           title2.className,
           'relative text-2xl lg:text-5xl leading-10 lg:leading-[4rem] text-center font-bold',
+          'font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue to-blue via-gradient-end',
           contentClassName
         )}>
         {children}

@@ -1,3 +1,3 @@
-import { text as fr } from '@/lang/fr/content';
+import { text as fr } from '@/lang/fr';
 
 export { fr as lang };
