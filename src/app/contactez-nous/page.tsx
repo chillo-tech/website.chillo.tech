@@ -16,14 +16,20 @@ function Page() {
         <h1
           className={cn(
             title1.className,
-            'text-4xl w-fit mx-auto lg:text-5xl font-bold text-center text-blue'
+            'text-4xl w-fit mx-auto lg:text-5xl font-bold text-center',
+            'text-transparent bg-clip-text bg-gradient-to-r from-blue to-blue via-gradient-end'
           )}>
           {lang.contactPage.title}
         </h1>
-        <div
-          className={cn(title2.className, 'text-center text-xl w-fit mx-auto')}>
-          <RenderHtmlContent content={lang.contactPage.subtitle} />
-        </div>
+        {lang.contactPage.subtitle && (
+          <div
+            className={cn(
+              title2.className,
+              'text-center text-xl w-fit mx-auto'
+            )}>
+            <RenderHtmlContent content={lang.contactPage.subtitle} />
+          </div>
+        )}
       </div>
       <article className="w-fit mx-auto rounded-md border-2 border-gray p-2 md:px-2 md:p-6">
         <ContactForm />

@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body>
+      <body className="antialiased selection:bg-green selection:text-white">
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
