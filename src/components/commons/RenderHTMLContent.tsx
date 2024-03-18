@@ -11,8 +11,7 @@ function RenderHtmlContent({ content, className }: RenderHtmlContentProps) {
       className={cn('html-text [&>p]:whitespace-normal', className)}
       dangerouslySetInnerHTML={{
         __html: content,
-      }}
-    />
+      }}></div>
   );
 }
 
