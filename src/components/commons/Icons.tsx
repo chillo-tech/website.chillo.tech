@@ -15,7 +15,7 @@ import {
   PlusIcon,
 } from 'lucide-react';
 import { FcGoogle } from 'react-icons/fc';
-import { FaFacebook, FaRegCheckCircle, FaCrown, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import { FaFacebook, FaRegCheckCircle, FaCrown, FaInstagram, FaWhatsapp, FaDev, FaCode, FaChrome, FaBusinessTime, FaArtstation } from 'react-icons/fa';
 import Image from 'next/image';
 
 const Icons = {
@@ -36,6 +36,11 @@ const Icons = {
   menu: HamburgerMenuIcon,
   google: FcGoogle,
   x: XIcon,
+  dev: FaDev,
+  business: FaBusinessTime,
+  chrome: FaChrome,
+  code: FaCode,
+  art: FaArtstation,
   arrow_down: (props: LucideProps) => (
     <svg
       width="189"

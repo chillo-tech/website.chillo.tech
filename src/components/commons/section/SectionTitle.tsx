@@ -5,12 +5,14 @@ import { cn } from '@/lib/utils';
 interface SectionTitleProps extends React.HTMLAttributes<HTMLDivElement> {
   contentClassName?: string;
   subtitle?: string;
+  subClassName?: string;
 }
 
 const SectionTitle = ({
   subtitle,
   className,
   contentClassName,
+  subClassName,
   children,
 }: SectionTitleProps) => {
   return (
@@ -29,7 +31,7 @@ const SectionTitle = ({
         {children}
       </h2>
       {subtitle && (
-        <div className="mx-auto my-2 md:px-12 lg:px-24 text-center">
+        <div className={cn("mx-auto my-2 md:px-12 lg:px-24 text-center", subClassName)}>
           <RenderHtmlContent content={subtitle} />
         </div>
       )}

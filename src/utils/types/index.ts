@@ -23,6 +23,14 @@ export type HowItWork = {
   description: string;
 };
 
+export type Service = {
+  id: number;
+  icon: string;
+  subject?: string,
+  title: string,
+  content: string
+};
+
 export type PricingOffer = {
   title: string;
   subtitle?: string;
