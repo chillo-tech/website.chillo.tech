@@ -9,6 +9,10 @@ import Icons from "@/components/commons/Icons";
 import {SERVICES_ICONS} from "@/lang/fr/services";
 import TopServiceItem from "@/components/service/TopServiceItem";
 import ServiceItem from "@/components/service/ServiceItem";
+import Link from "next/link";
+import {ROUTE_CONTACT} from "@/config/routes";
+import {Button} from "@/components/ui/button";
+import {title2} from "@/assets/fonts";
 
 interface ServiceProps extends React.HTMLAttributes<HTMLDivElement> {
 }
@@ -45,6 +49,19 @@ function Service({className}: ServiceProps) {
                             subtitle={lang.service.subtitle}>
                             <RenderHtmlContent content={lang.service.title}/>
                         </SectionTitle>
+
+                        <div className="mt-6">
+                            <Link href={ROUTE_CONTACT}>
+                                <Button
+                                    variant={'outline'}
+                                    className={cn(
+                                        'bg-green border-none font-semibold text-white hover:bg-green/80 rounded-full',
+                                        title2.className
+                                    )}>
+                                    {lang.button.contact}
+                                </Button>
+                            </Link>
+                        </div>
                     </div>
                 </aside>
 
