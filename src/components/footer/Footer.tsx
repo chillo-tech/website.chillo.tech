@@ -1,4 +1,5 @@
-import { lang } from '@/lang';
+'use client';
+
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { title1, paragraph } from '@/assets/fonts';
@@ -10,8 +11,13 @@ import { siteConfig } from '@/config';
 import Link from 'next/link';
 import { ROUTE_CONTACT } from '@/config/routes';
 import { SECTIONS_IDS } from '@/config/links';
+import { useFooterContent } from '@/hooks/useFooterContent';
+import { useButtonInfoContent } from '@/hooks/useButtonContent';
 
 function Footer() {
+  const text = useFooterContent();
+  const buttonText = useButtonInfoContent();
+
   return (
     <footer id={SECTIONS_IDS.FOOTER} className="bg-dark-gray-08">
       <div
@@ -25,11 +31,11 @@ function Footer() {
               title1.className,
               'text-blue font-bold leading-10 text-xl md:text-2xl'
             )}>
-            {lang.footer.title}
+            {text?.title}
           </h2>
-          <p className="w-[70%] mx-auto">{lang.footer.subtitle}</p>
+          <p className="w-[70%] mx-auto">{text?.subtitle}</p>
           <Link className="inline-flex mt-2" href={ROUTE_CONTACT}>
-            <Button variant={'primary'}>{lang.button.contact}</Button>
+            <Button variant={'primary'}>{buttonText?.contact}</Button>
           </Link>
         </div>
         <div className="mt-16 w-full flex flex-col lg:flex-row gap-8 md:gap-0 justify-between">
@@ -38,12 +44,12 @@ function Footer() {
         </div>
         <Separator className="my-4" />
         <div className="w-full flex flex-col md:flex-row gap-4 justify-between items-center text-center">
-          <span className="inline-block">{lang.footer.copyright}</span>
+          <span className="inline-block">{text?.copyright}</span>
           <span className="inline-block">
             <Link
               href={siteConfig.links.privacyPolicyUrl}
               className="hover:text-blue">
-              {siteConfig.links.privacyPolicyUrl.title}
+              {text?.privacyPolicy}
             </Link>
           </span>
           <SocialMediaLinks />

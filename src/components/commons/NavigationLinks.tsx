@@ -1,23 +1,46 @@
 'use client';
 
 import { title2 } from '@/assets/fonts';
-import { siteConfig } from '@/config';
+import { SECTIONS_IDS } from '@/config/links';
+import { useNavigationMenu } from '@/hooks/useNavigationMenu';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
 interface NavigationLinksProps extends React.HTMLAttributes<HTMLDivElement> {
   linkClassName?: string;
-    closeMenu?: any;
+  closeMenu?: any;
 }
 
-function NavigationLinks({ className, linkClassName, closeMenu = () => 1}: NavigationLinksProps) {
+interface NavLink {
+  title?: string;
+  href: string;
+}
+
+function NavigationLinks({
+  className,
+  linkClassName,
+  closeMenu = () => 1,
+}: NavigationLinksProps) {
+  const text = useNavigationMenu();
+
+  const navigations: NavLink[] = [
+    { title: text?.about, href: `/#${SECTIONS_IDS.ABOUT_US}` },
+    {
+      title: text?.how_it_works,
+      href: `/#${SECTIONS_IDS.HOW_ITS_WORK}`,
+    },
+    { title: text?.services, href: `/#${SECTIONS_IDS.SERVICE}` },
+    { title: text?.pricing, href: `/#${SECTIONS_IDS.PRICING}` },
+    { title: text?.faq, href: `/#${SECTIONS_IDS.FAQ}` },
+  ];
+
   return (
     <nav
       className={cn(
         'flex justify-center w-fit md:items-center flex-col md:flex-row gap-3 md:gap-6',
         className
       )}>
-      {siteConfig.mainNavLinks.map((link, index) => (
+      {navigations.map((link, index) => (
         <Link
           key={`${index}-${link.href}`}
           className={cn(

@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { cn } from '@/lib/utils';
 import Icons from '@/components/commons/Icons';
@@ -8,7 +10,8 @@ import { cva, VariantProps } from 'class-variance-authority';
 import { lang } from '@/lang';
 import { ROUTE_CONTACT } from '@/config/routes';
 import Link from 'next/link';
-import RenderHtmlContent from '../commons/RenderHTMLContent';
+import RenderHtmlContent from '@/components/commons/RenderHTMLContent';
+import { useButtonInfoContent } from '@/hooks/useButtonContent';
 
 const priceTableVariants = cva(
   'container border-2 relative p-5 rounded-md max-w-96 min-w-48 md:min-w-80',
@@ -59,6 +62,8 @@ export const PriceTable = React.forwardRef<HTMLDivElement, PriceTableProps>(
     },
     ref
   ) => {
+    const buttonText = useButtonInfoContent();
+
     return (
       <div
         className={cn(priceTableVariants({ variant, size, className }))}
@@ -87,11 +92,11 @@ export const PriceTable = React.forwardRef<HTMLDivElement, PriceTableProps>(
         </div>
         <div className="flex flex-col gap-2 w-full">
           <Button className="inline-block rounded-md" variant={'primary'}>
-            {lang.button.suscribe}
+            {buttonText?.subscribe}
           </Button>
           <Link className="inline-block w-full" href={ROUTE_CONTACT}>
             <Button className="inline-block w-full" variant={'secondary'}>
-              {lang.button.contact}
+              {buttonText?.contact}
             </Button>
           </Link>
         </div>

@@ -4,7 +4,7 @@ import { ABOUT_US_PAGE } from '@/api';
 import { FIELDS_ABOUT_US_PAGE } from '@/api/fields';
 import { ABOUT_US_PAGE_DATA_ID } from '@/api/singleton_ids';
 
-export const fetchAboutUsText = async (): Promise<AboutUsPage | null> => {
+const fetchAboutUsText = async (): Promise<AboutUsPage | null> => {
   const response = await fetchData({
     path: `${ABOUT_US_PAGE}/${ABOUT_US_PAGE_DATA_ID}`,
     fields: FIELDS_ABOUT_US_PAGE,
@@ -44,7 +44,7 @@ export const fetchAboutUsText = async (): Promise<AboutUsPage | null> => {
 };
 
 const aboutUs: AboutUsPage = {
-  title: `LOCAL: À propos de nous.`,
+  title: `À propos de nous.`,
   subtitle: `Évitez-vous la corvée de vérifier les développeurs ou de traiter avec l'externalisation - nous remplaçons les développeurs conventionnels et les agences coûteuses par un paiement mensuel simple.
     La solution parfaite pour les startups et les entreprises.`,
   coreValues: [
@@ -85,4 +85,5 @@ const aboutUs: AboutUsPage = {
   ],
 };
 
+export { fetchAboutUsText };
 export default aboutUs;

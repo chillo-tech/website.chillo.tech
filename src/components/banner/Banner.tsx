@@ -3,18 +3,22 @@
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { title1, title2 } from '@/assets/fonts';
-import { lang } from '@/lang';
 import { Button } from '@/components/ui/button';
 import RenderHtmlContent from '@/components/commons/RenderHTMLContent';
-import React from 'react';
+import React, {  } from 'react';
 import Section from '@/components/commons/section/Section';
 import { ROUTE_CONTACT } from '@/config/routes';
 import Link from 'next/link';
 import { SECTIONS_IDS } from '@/config/links';
+import { useBannerContent } from '@/hooks/useBannerContent';
+import { useButtonInfoContent } from '@/hooks/useButtonContent';
 
 interface BannerProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 function Banner({ className }: BannerProps) {
+  const text = useBannerContent();
+  const buttonText = useButtonInfoContent();
+
   return (
     <Section
       id={SECTIONS_IDS.BANNER}
@@ -28,17 +32,17 @@ function Banner({ className }: BannerProps) {
             title1.className,
             'text-blue text-5xl lg:text-6xl font-semibold'
           )}>
-          {lang.banner.title}
+          {text?.title}
         </h1>
         <h2
           className={cn(
             title1.className,
             'text-black font-semibold leading-10 text-3xl md:text-4xl mt-8'
           )}>
-          {lang.banner.subtitle}
+          {text?.subtitle}
         </h2>
         <div className="text-base lg:text-xl my-5">
-          <RenderHtmlContent content={lang.banner.contentTitle} />
+          <RenderHtmlContent content={text?.contentTitle ?? ''} />
         </div>
         <Link href={ROUTE_CONTACT}>
           <Button
@@ -47,7 +51,7 @@ function Banner({ className }: BannerProps) {
               'bg-green border-none font-semibold text-white hover:bg-green/80 rounded-full',
               title2.className
             )}>
-            {lang.button.contact}
+            {buttonText?.contact}
           </Button>
         </Link>
       </article>

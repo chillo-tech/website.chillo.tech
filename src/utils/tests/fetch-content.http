@@ -6,12 +6,22 @@ GET {{host}}/items/AboutUsPage/1?fields=*,cards.CardItem_id.*,coreValues.CardIte
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
-#### CardItem : related informations for coreValues and cards
-
-GET {{host}}/items/CardItem/1
+### Banner
+GET {{host}}/items/Banner/1?fields=*
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
+### Button
+GET {{host}}/items/Button/1?fields=*
+Content-Type: application/json
+Authorization: Bearer {{token}}
 
-###
+### Navigation Menu
+GET {{ host }}/items/NavigationMenu/1?fields=*
+Content-Type: application/json
+Authorization: Bearer {{ token }}
 
+### Footer
+GET {{ host }}/items/footer
+Content-Type: application/json
+Authorization: Bearer {{ token }}

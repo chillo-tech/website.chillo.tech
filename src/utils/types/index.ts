@@ -11,6 +11,12 @@ export type Banner = {
   title: string;
 };
 
+export type ButtonInfo = {
+  contact?: string;
+  send?: string;
+  subscribe?: string;
+}
+
 export type CardItem = {
   description: string;
   subtitle?: string;

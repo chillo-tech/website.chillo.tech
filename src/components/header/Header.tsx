@@ -4,7 +4,6 @@ import Icons from '@/components/commons/Icons';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { title2 } from '@/assets/fonts';
-import { lang } from '@/lang';
 import { Button } from '@/components/ui/button';
 import Logo from '@/components/commons/Logo';
 import NavigationLinks from '@/components/commons/NavigationLinks';
@@ -12,8 +11,10 @@ import { ROUTE_CONTACT } from '@/config/routes';
 import Link from 'next/link';
 import SocialMediaLinks from '@/components/commons/SocialMediaLinks';
 import { SECTIONS_IDS } from '@/config/links';
+import { useButtonInfoContent } from '@/hooks/useButtonContent';
 
 function Header() {
+  const buttonText = useButtonInfoContent();
   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
 
   const onMenuToggle = (e: any) => {
@@ -21,7 +22,9 @@ function Header() {
   };
 
   return (
-    <header id={SECTIONS_IDS.HEADER} className="w-full h-max flex justify-center py-5 px-3 sticky top-0 z-40 bg-white">
+    <header
+      id={SECTIONS_IDS.HEADER}
+      className="w-full h-max flex justify-center py-5 px-3 sticky top-0 z-40 bg-white">
       <div className="container h-max w-full hidden lg:block">
         <div className="w-full relative py-2">
           <div className="flex justify-between">
@@ -41,7 +44,7 @@ function Header() {
                       'bg-green border-none font-semibold text-white hover:bg-green/80 rounded-full',
                       title2.className
                     )}>
-                    {lang.button.contact}
+                    {buttonText?.contact}
                   </Button>
                 </Link>
               </div>
@@ -61,7 +64,7 @@ function Header() {
                     'bg-green border-none font-semibold text-white hover:bg-green/80 rounded-full',
                     title2.className
                   )}>
-                  {lang.button.contact}
+                  {buttonText?.contact}
                 </Button>
               </Link>
             </div>
@@ -96,7 +99,7 @@ function Header() {
                 'bg-green border-none font-semibold text-white hover:bg-green/80 rounded-full',
                 title2.className
               )}>
-              {lang.button.contact}
+              {buttonText?.contact}
             </Button>
           </Link>
           <SocialMediaLinks className="justify-start mt-5" />

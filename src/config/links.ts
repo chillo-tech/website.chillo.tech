@@ -53,17 +53,6 @@ export const SOCIALS: Link[] = [
   linkWhatsapp,
 ];
 
-export const navigations: Link[] = [
-  { title: lang.navigation.about, href: `/#${SECTIONS_IDS.ABOUT_US}` },
-  {
-    title: lang.navigation.how_it_works,
-    href: `/#${SECTIONS_IDS.HOW_ITS_WORK}`,
-  },
-  { title: lang.navigation.services, href: `/#${SECTIONS_IDS.SERVICE}` },
-  { title: lang.navigation.pricing, href: `/#${SECTIONS_IDS.PRICING}` },
-  { title: lang.navigation.faq, href: `/#${SECTIONS_IDS.FAQ}` },
-];
-
 export const privacyPolicyUrl: Link = {
   title: lang.footer.privacyPolicy,
   href: 'here paste the URL',

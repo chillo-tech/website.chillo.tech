@@ -1,26 +1,13 @@
 'use client';
 
-import { lang } from '@/lang';
-import Section from '../commons/section/Section';
-import SectionTitle from '../commons/section/SectionTitle';
-import Card from '../commons/Card';
+import Section from '@/components/commons/section/Section';
+import SectionTitle from '@/components/commons/section/SectionTitle';
+import Card from '@/components/commons/Card';
 import { SECTIONS_IDS } from '@/config/links';
-import { useEffect, useState } from 'react';
-import { AboutUsPage } from '@/utils/types';
-import { fetchAboutUsText } from '@/lang/fr/about-us';
+import { useAboutUsContent } from '@/hooks';
 
 const AboutUs = () => {
-  const [text, setText] = useState<AboutUsPage | undefined>(undefined);
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const getContent = async () => {
-    const content = await fetchAboutUsText();
-    setText(content ?? lang.aboutUs);
-  };
-
-  useEffect(() => {
-    getContent();
-  }, [getContent, text]);
+  const text = useAboutUsContent();
 
   return (
     <Section
