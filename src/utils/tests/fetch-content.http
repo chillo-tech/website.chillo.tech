@@ -1,0 +1,17 @@
+@host = https://backoffice.chillo.fr
+@token = 7wnlAKIGVv6kpnMyuE4sd3s6zLPam4Ec
+
+### About us page
+GET {{host}}/items/AboutUsPage/1?fields=*,cards.CardItem_id.*,coreValues.CardItem_id.*
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+#### CardItem : related informations for coreValues and cards
+
+GET {{host}}/items/CardItem/1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+
+###
+

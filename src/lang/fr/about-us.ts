@@ -1,7 +1,50 @@
-import { AboutUsPage } from '../../utils/types';
+import { fetchData } from '@/services/fetch-data';
+import { AboutUsPage, CardItem } from '../../utils/types';
+import { ABOUT_US_PAGE } from '@/api';
+import { FIELDS_ABOUT_US_PAGE } from '@/api/fields';
+import { ABOUT_US_PAGE_DATA_ID } from '@/api/singleton_ids';
+
+export const fetchAboutUsText = async (): Promise<AboutUsPage | null> => {
+  const response = await fetchData({
+    path: `${ABOUT_US_PAGE}/${ABOUT_US_PAGE_DATA_ID}`,
+    fields: FIELDS_ABOUT_US_PAGE,
+  });
+
+  if (response.data?.data) {
+    // Load page informations
+    const template = response.data.data;
+
+    // Related models
+    const coreValuesTemplate: any[] = template.coreValues;
+    const coreValues: CardItem[] = coreValuesTemplate.map((value) => ({
+      title: value.CardItem_id.title,
+      subtitle: value.CardItem_id.subtitle,
+      description: value.CardItem_id.description,
+    }));
+
+    const cardsTemplate: any[] = template.cards;
+    const cards: CardItem[] = cardsTemplate.map((value) => ({
+      title: value.CardItem_id.title,
+      subtitle: value.CardItem_id.subtitle,
+      description: value.CardItem_id.description,
+    }));
+
+    // Build page data
+    let page: AboutUsPage = {
+      title: template?.title,
+      subtitle: template?.subtitle,
+      coreValues,
+      cards,
+    };
+
+    return page;
+  }
+
+  return null;
+};
 
 const aboutUs: AboutUsPage = {
-  title: `À propos de nous.`,
+  title: `LOCAL: À propos de nous.`,
   subtitle: `Évitez-vous la corvée de vérifier les développeurs ou de traiter avec l'externalisation - nous remplaçons les développeurs conventionnels et les agences coûteuses par un paiement mensuel simple.
     La solution parfaite pour les startups et les entreprises.`,
   coreValues: [

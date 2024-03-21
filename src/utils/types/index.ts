@@ -1,70 +1,111 @@
-export type CardItem = {
-  title: string;
-  subtitle?: string;
-  description: string;
-};
-
 export type AboutUsPage = {
-  title: string;
-  subtitle?: string;
-  coreValues: CardItem[];
   cards?: CardItem[];
-};
-
-export type FAQItem = {
-  question: string;
-  answer: string;
-};
-
-export type HowItWork = {
-  id: number;
+  coreValues: CardItem[];
+  subtitle?: string;
   title: string;
+};
+
+export type Banner = {
+  contentTitle: string;
   subtitle: string;
+  title: string;
+};
+
+export type CardItem = {
   description: string;
-};
-
-export type Service = {
-  id: number;
-  icon: string;
-  subject?: string,
-  title: string,
-  content: string
-};
-
-export type PricingOffer = {
-  title: string;
   subtitle?: string;
-  price: number;
-  services: string[];
-};
-
-export type PricingSection = {
   title: string;
-  subtitle?: string;
-  description?: string;
-  currency?: string;
-  defaultPeriodicity: 'mois' | 'an';
-  standard: PricingOffer;
-  pro: PricingOffer;
 };
 
 export type ContactFormFields = {
   [key: string]: {
+    defaultValue?: string | number | readonly string[] | undefined;
     label: string;
+    pattern?: RegExp;
     placeholder?: string | undefined;
     required?: boolean;
-    pattern?: RegExp;
-    defaultValue?: string | number | readonly string[] | undefined;
   };
 };
 
 export type ContactPage = {
-  title: string;
-  subtitle?: string;
   form: {
-    legend: string;
     fields: ContactFormFields;
+    legend: string;
     submitButton: string;
     thanks?: string;
   };
+  subtitle?: string;
+  title: string;
+};
+
+export type FAQItem = {
+  answer: string;
+  question: string;
+};
+
+export type FAQSection = {
+  contentTitle: string;
+  items: FAQItem[];
+  subtitle?: string;
+  title: string;
+};
+
+export type FooterSection = {
+  copyright?: string;
+  privacyPolicy?: string;
+  subtitle?: string;
+  title: string;
+};
+
+export type HowItWorkItem = {
+  description: string;
+  id: number;
+  subtitle: string;
+  title: string;
+};
+
+export type HowItWorkSection = {
+  items: HowItWorkItem[];
+  subtitle: string;
+  title: string;
+};
+
+export type Navigation = {
+  about: string;
+  faq: string;
+  how_it_works: string;
+  pricing: string;
+  services: string;
+};
+
+export type PricingOffer = {
+  price: number;
+  services: string[];
+  subtitle?: string;
+  title: string;
+};
+
+export type PricingSection = {
+  currency?: string;
+  defaultPeriodicity: 'mois' | 'an';
+  description?: string;
+  pro: PricingOffer;
+  standard: PricingOffer;
+  subtitle?: string;
+  title: string;
+};
+
+export type Service = {
+  content: string;
+  icon: string;
+  id: number;
+  subject?: string;
+  title: string;
+};
+
+export type ServiceSection = {
+  services: Service[];
+  subtitle: string;
+  title: string;
+  topServices: Service[];
 };

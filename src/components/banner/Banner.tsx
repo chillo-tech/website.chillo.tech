@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { title1, title2 } from '@/assets/fonts';

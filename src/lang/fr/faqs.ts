@@ -1,6 +1,6 @@
 import { FAQItem } from '../../utils/types';
 
-const faqs: FAQItem[] = [
+const faqsItems: FAQItem[] = [
   {
     question: 'Qui est le client idéal de Chillo Tech ?',
     answer: `Chillo Services est le partenaire parfait pour les entrepreneurs et les entreprises de toutes tailles qui cherchent à développer des logiciels ou à améliorer leurs opérations avec la puissance de la technologie avancée. Nous comprenons les obstacles liés à l'embauche d'un développeur à plein temps - le temps passé à vérifier les candidats, les coûts élevés et le risque de compétences inadaptées.<br/><br/>
@@ -27,4 +27,4 @@ const faqs: FAQItem[] = [
   },
 ];
 
-export default faqs;
+export default faqsItems;

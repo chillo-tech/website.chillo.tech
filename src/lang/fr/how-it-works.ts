@@ -1,6 +1,6 @@
-import { HowItWork } from '../../utils/types';
+import { HowItWorkItem } from '../../utils/types';
 
-const howItWorks: HowItWork[] = [
+const howItWorks: HowItWorkItem[] = [
   {
     id: 1,
     title: 'Réservez une discussion',

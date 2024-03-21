@@ -1,0 +1,3 @@
+const ABOUT_US_PAGE_DATA_ID = 1;
+
+export { ABOUT_US_PAGE_DATA_ID }
