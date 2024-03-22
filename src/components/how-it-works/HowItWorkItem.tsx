@@ -1,9 +1,9 @@
-import { HowItWork } from '@/lang/fr';
 import { paragraph, title2 } from '@/assets/fonts';
 import { cn } from '@/lib/utils';
+import { HowItWorkItem } from '@/utils/types';
 
 interface HowItWorkItemProps extends React.HTMLAttributes<HTMLDivElement> {
-  item: HowItWork;
+  item: HowItWorkItem;
   reverse: boolean;
 }
 

@@ -23,8 +23,12 @@ import { Separator } from '@/components/ui/separator';
 import RenderHtmlContent from '../RenderHTMLContent';
 import { ContactFormSchema as FormSchema } from '@/models';
 import { lang } from '@/lang';
+import { fetchContactPageContent } from '@/lang/fr/contact';
+import { useContent } from '@/hooks';
 
 const ContactForm = () => {
+  const text = useContent(fetchContactPageContent, lang.contactPage);
+
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
   });
@@ -53,22 +57,18 @@ const ContactForm = () => {
         onSubmit={form.handleSubmit(onSubmit)}
         className="w-full px-8 mx-auto space-y-6">
         <legend>
-          <RenderHtmlContent content={lang.contactPage.form.legend} />
+          <RenderHtmlContent content={text?.form.legend ?? ''} />
         </legend>
         <FormField
           control={form.control}
           name={'email'}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>
-                {lang.contactPage.form.fields[field.name].label}
-              </FormLabel>
+              <FormLabel>{text?.form.fields[field.name].label}</FormLabel>
               <FormControl>
                 <Input
                   type={'email'}
-                  placeholder={
-                    lang.contactPage.form.fields[field.name]?.placeholder
-                  }
+                  placeholder={text?.form.fields[field.name]?.placeholder}
                   {...field}
                   className="w-full"
                 />
@@ -83,14 +83,10 @@ const ContactForm = () => {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>
-                {lang.contactPage.form.fields[field.name]?.label}
-              </FormLabel>
+              <FormLabel>{text?.form.fields[field.name]?.label}</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder={
-                    lang.contactPage.form.fields[field.name]?.placeholder
-                  }
+                  placeholder={text?.form.fields[field.name]?.placeholder}
                   className="resize-none"
                   {...field}
                 />
@@ -100,11 +96,11 @@ const ContactForm = () => {
           )}
         />
         <Button variant={'primary'} type="submit">
-          {lang.contactPage.form.submitButton}
+          {text?.form.submitButton}
         </Button>
         <Separator className="my-6 bg-light-gray" />
         <FormDescription className="text-black/70">
-          {lang.contactPage.form.thanks} |{' '}
+          {text?.form.thanks} |{' '}
           <span className="font-semibold text-blue">{siteConfig.appName}</span>.
         </FormDescription>
       </form>

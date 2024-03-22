@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import Section from '@/components/commons/section/Section';
 import { cn } from '@/lib/utils';
@@ -6,10 +8,14 @@ import { paragraph, title2 } from '@/assets/fonts';
 import RenderHtmlContent from '@/components/commons/RenderHTMLContent';
 import PriceTable from '@/components/pricing/PriceTable';
 import { SECTIONS_IDS } from '@/config/links';
+import { useContent } from '@/hooks';
+import { fetchPricingSectionContent } from '@/lang/fr/pricings';
 
 interface PricingSectionProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 function PricingSection({ className }: PricingSectionProps) {
+  const text = useContent(fetchPricingSectionContent, lang.pricing);
+
   return (
     <Section
       id={SECTIONS_IDS.PRICING}
@@ -23,18 +29,18 @@ function PricingSection({ className }: PricingSectionProps) {
             title2.className,
             'text-transparent bg-clip-text bg-gradient-to-r from-blue to-blue via-gradient-end text-2xl font-bold truncate md:text-4xl'
           )}>
-          {lang.pricing.title}
+          {text?.title}
         </h2>
         <h3
           className={cn(
             title2.className,
             'text-transparent bg-clip-text bg-gradient-to-r from-blue to-blue via-gradient-end pl-2 text-xl'
           )}>
-          {lang.pricing.subtitle}
+          {text?.subtitle}
         </h3>
-        {lang.pricing.description && (
+        {text?.description && (
           <div className={cn(paragraph.className, 'text-black pl-3 pb-8')}>
-            <RenderHtmlContent content={lang.pricing.description} />
+            <RenderHtmlContent content={text?.description} />
           </div>
         )}
       </div>
@@ -45,22 +51,22 @@ function PricingSection({ className }: PricingSectionProps) {
         )}>
         <PriceTable
           variant={'standard'}
-          price={lang.pricing.standard.price}
-          services={lang.pricing.standard.services}
-          title={lang.pricing.standard.title}
-          subtitle={lang.pricing.standard.subtitle}
-          pricePrefix={lang.pricing.currency}
-          priceSuffix={`\\${lang.pricing.defaultPeriodicity}`}
+          price={text?.standard?.price ?? -1}
+          services={text?.standard?.services ?? []}
+          title={text?.standard?.title ?? ''}
+          subtitle={text?.standard?.subtitle}
+          pricePrefix={text?.currency}
+          priceSuffix={`\\${text?.defaultPeriodicity}`}
         />
         <PriceTable
           variant={'pro'}
           size={'large'}
-          price={lang.pricing.pro.price}
-          services={lang.pricing.pro.services}
-          title={lang.pricing.pro.title}
-          subtitle={lang.pricing.pro.subtitle}
-          pricePrefix={lang.pricing.currency}
-          priceSuffix={`\\${lang.pricing.defaultPeriodicity}`}
+          price={text?.pro?.price ?? -1}
+          services={text?.pro?.services ?? []}
+          title={text?.pro?.title ?? ''}
+          subtitle={text?.pro?.subtitle}
+          pricePrefix={text?.currency}
+          priceSuffix={`\\${text?.defaultPeriodicity}`}
         />
       </div>
     </Section>

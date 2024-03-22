@@ -15,7 +15,7 @@ export type ButtonInfo = {
   contact?: string;
   send?: string;
   subscribe?: string;
-}
+};
 
 export type CardItem = {
   description: string;
@@ -89,14 +89,15 @@ export type PricingOffer = {
   services: string[];
   subtitle?: string;
   title: string;
+  slug?: string;
 };
 
 export type PricingSection = {
   currency?: string;
   defaultPeriodicity: 'mois' | 'an';
   description?: string;
-  pro: PricingOffer;
-  standard: PricingOffer;
+  pro?: PricingOffer;
+  standard?: PricingOffer;
   subtitle?: string;
   title: string;
 };

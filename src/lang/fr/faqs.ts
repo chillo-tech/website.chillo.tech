@@ -1,4 +1,35 @@
-import { FAQItem } from '../../utils/types';
+import { fetchData } from '@/services/fetch-data';
+import { FAQItem, FAQSection } from '../../utils/types';
+import { FAQ_SECTION } from '@/api';
+import { FAQ_SECTION_DATA_ID } from '@/api/singleton_ids';
+import { FIELDS_FAQ_SECTION } from '@/api/fields';
+
+const fetchFAQSectionContent = async (): Promise<FAQSection | null> => {
+  const response = await fetchData({
+    path: `${FAQ_SECTION}/${FAQ_SECTION_DATA_ID}`,
+    fields: FIELDS_FAQ_SECTION,
+  });
+
+  if (response.data?.data) {
+    const template = response.data.data;
+
+    const items: FAQItem[] = template.items.map((val: any) => ({
+      answer: val.answer,
+      question: val.question,
+    }));
+
+    const faqsSection: FAQSection = {
+      title: template.title,
+      subtitle: template.subtitle,
+      contentTitle: template.contentTitle,
+      items,
+    };
+
+    return faqsSection;
+  }
+
+  return null;
+};
 
 const faqsItems: FAQItem[] = [
   {
@@ -27,4 +58,13 @@ const faqsItems: FAQItem[] = [
   },
 ];
 
-export default faqsItems;
+const faqsSection: FAQSection = {
+  contentTitle: 'Les Bases.',
+  items: faqsItems,
+  subtitle: `Nous avons rassemblé certaines des questions les plus populaires posées par les clients comme ressource pour vous.<br/>
+  N'hésitez pas à nous contacter directement si vous avez d'autres questions<br/> qui ne sont pas abordées ici.`,
+  title: 'Questions fréquemment posées ?',
+};
+
+export { fetchFAQSectionContent };
+export default faqsSection;

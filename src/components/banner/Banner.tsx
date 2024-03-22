@@ -5,19 +5,21 @@ import { cn } from '@/lib/utils';
 import { title1, title2 } from '@/assets/fonts';
 import { Button } from '@/components/ui/button';
 import RenderHtmlContent from '@/components/commons/RenderHTMLContent';
-import React, {  } from 'react';
+import React from 'react';
 import Section from '@/components/commons/section/Section';
 import { ROUTE_CONTACT } from '@/config/routes';
 import Link from 'next/link';
 import { SECTIONS_IDS } from '@/config/links';
-import { useBannerContent } from '@/hooks/useBannerContent';
-import { useButtonInfoContent } from '@/hooks/useButtonContent';
+import { useContent } from '@/hooks';
+import { fetchBannerText } from '@/lang/fr/banner';
+import { lang } from '@/lang';
+import { fetchButtonInfo } from '@/lang/fr/button';
 
 interface BannerProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 function Banner({ className }: BannerProps) {
-  const text = useBannerContent();
-  const buttonText = useButtonInfoContent();
+  const text = useContent(fetchBannerText, lang.banner);
+  const buttonText = useContent(fetchButtonInfo, lang.button);
 
   return (
     <Section

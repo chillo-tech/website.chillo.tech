@@ -11,12 +11,14 @@ import { siteConfig } from '@/config';
 import Link from 'next/link';
 import { ROUTE_CONTACT } from '@/config/routes';
 import { SECTIONS_IDS } from '@/config/links';
-import { useFooterContent } from '@/hooks/useFooterContent';
-import { useButtonInfoContent } from '@/hooks/useButtonContent';
+import { fetchButtonInfo } from '@/lang/fr/button';
+import { lang } from '@/lang';
+import { fetchFooterContent } from '@/lang/fr/footer';
+import { useContent } from '@/hooks';
 
 function Footer() {
-  const text = useFooterContent();
-  const buttonText = useButtonInfoContent();
+  const text = useContent(fetchFooterContent, lang.footer);
+  const buttonText = useContent(fetchButtonInfo, lang.button);
 
   return (
     <footer id={SECTIONS_IDS.FOOTER} className="bg-dark-gray-08">

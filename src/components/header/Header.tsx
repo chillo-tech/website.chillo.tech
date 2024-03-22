@@ -11,10 +11,13 @@ import { ROUTE_CONTACT } from '@/config/routes';
 import Link from 'next/link';
 import SocialMediaLinks from '@/components/commons/SocialMediaLinks';
 import { SECTIONS_IDS } from '@/config/links';
-import { useButtonInfoContent } from '@/hooks/useButtonContent';
+import { useContent } from '@/hooks';
+import { fetchButtonInfo } from '@/lang/fr/button';
+import { lang } from '@/lang';
 
 function Header() {
-  const buttonText = useButtonInfoContent();
+  const buttonText = useContent(fetchButtonInfo, lang.button);
+
   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
 
   const onMenuToggle = (e: any) => {

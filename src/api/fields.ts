@@ -2,14 +2,14 @@ const FIELDS_ABOUT_US_PAGE = `*,cards.CardItem_id.*,coreValues.CardItem_id.*`;
 const FIELDS_BANNER = `*`;
 const FIELDS_BUTTON = `*`;
 const FIELDS_NAVIGATION = `*`;
-const FIELDS_CONTACT_FORM = `*`;
-const FIELDS_CONTACT_PAGE = `*`;
-const FIELDS_FAQ_SECTION = `*`;
+const FIELDS_CONTACT_FORM = `*,fields.*`;
+const FIELDS_CONTACT_PAGE = `*,form.*,form.fields.*`;
+const FIELDS_FAQ_SECTION = `*,items.*`;
 const FIELDS_FOOTER = `*`;
-const FIELDS_HOW_IT_WORK_SECTION = `*`;
+const FIELDS_HOW_IT_WORK_SECTION = `*,items.HowItWorkItem_id.*`;
 const FIELDS_NAVIGATION_MENU = `*`;
-const FIELDS_PRICING_SECTION = `*`;
-const FIELDS_SERVICES_SECTION = `*`;
+const FIELDS_PRICING_SECTION = `*,offers.PricingOffer_id.*.Offer_id.title`;
+const FIELDS_SERVICES_SECTION = `*,topServices.ServiceCard_id.*,services.ServiceCard_id.*`;
 
 export {
   FIELDS_ABOUT_US_PAGE,

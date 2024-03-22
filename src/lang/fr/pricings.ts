@@ -1,4 +1,43 @@
-import { PricingSection } from '../../utils/types';
+import { fetchData } from '@/services/fetch-data';
+import { PricingOffer, PricingSection } from '../../utils/types';
+import { PRICING_SECTION } from '@/api';
+import { PRICING_SECTION_DATA_ID } from '@/api/singleton_ids';
+import { FIELDS_PRICING_SECTION } from '@/api/fields';
+
+const fetchPricingSectionContent = async (): Promise<PricingSection | null> => {
+  const response = await fetchData({
+    path: `${PRICING_SECTION}/${PRICING_SECTION_DATA_ID}`,
+    fields: FIELDS_PRICING_SECTION,
+  });
+
+  if (response.data?.data) {
+    const template = response.data.data;
+
+    const offers: PricingOffer[] = template.offers.map((offer: any) => ({
+      title: offer.PricingOffer_id.title,
+      slug: offer.PricingOffer_id.slug,
+      subtitle: offer.PricingOffer_id.subtitle,
+      price: offer.PricingOffer_id.price,
+      services: offer.PricingOffer_id.services.map(
+        (service: any) => service.Offer_id.title
+      ),
+    }));
+
+    const pricingSection: PricingSection = {
+      title: template.title,
+      subtitle: template.subtitle,
+      currency: template.currency,
+      description: template.description,
+      defaultPeriodicity: template.defaultPeriodicity,
+      standard: offers.find((offer) => offer.slug === 'standard'),
+      pro: offers.find((offer) => offer.slug === 'pro'),
+    };
+
+    return pricingSection;
+  }
+
+  return null;
+};
 
 const pricingSection: PricingSection = {
   title: 'Tarification',
@@ -44,4 +83,5 @@ const pricingSection: PricingSection = {
   },
 };
 
+export { fetchPricingSectionContent };
 export default pricingSection;

@@ -25,3 +25,28 @@ Authorization: Bearer {{ token }}
 GET {{ host }}/items/footer
 Content-Type: application/json
 Authorization: Bearer {{ token }}
+
+### How it work section
+GET {{ host }}/items/HowItWorkSection/1?fields=*,items.HowItWorkItem_id.*
+Content-Type: application/json
+Authorization: Bearer {{ token }}
+
+### FAQ Section
+GET {{ host }}/items/FAQSection/1?fields=*,items.*
+Content-Type: application/json
+Authorization: Bearer {{ token }}
+
+### Pricing Section
+GET {{ host }}/items/PricingSection/1?fields=*,offers.PricingOffer_id.*.Offer_id.title
+Content-Type: application/json
+Authorization: Bearer {{ token }}
+
+### Service Section
+GET {{ host }}/items/ServiceSection/1?fields=*,topServices.ServiceCard_id.*,services.ServiceCard_id.*
+Content-Type: application/json
+Authorization: Bearer {{ token }}
+
+### Contact page
+GET {{ host }}/items/ContactPage/1?fields=*,form.*,form.fields.*
+Content-Type: application/json
+Authorization: Bearer {{ token }}

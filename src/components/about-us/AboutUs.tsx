@@ -4,10 +4,13 @@ import Section from '@/components/commons/section/Section';
 import SectionTitle from '@/components/commons/section/SectionTitle';
 import Card from '@/components/commons/Card';
 import { SECTIONS_IDS } from '@/config/links';
-import { useAboutUsContent } from '@/hooks';
+import { useContent } from '@/hooks';
+import { AboutUsPage } from '@/utils/types';
+import { fetchAboutUsText } from '@/lang/fr/about-us';
+import { lang } from '@/lang';
 
 const AboutUs = () => {
-  const text = useAboutUsContent();
+  const text = useContent<AboutUsPage>(fetchAboutUsText, lang.aboutUs);
 
   return (
     <Section

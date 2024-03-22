@@ -11,7 +11,8 @@ import { lang } from '@/lang';
 import { ROUTE_CONTACT } from '@/config/routes';
 import Link from 'next/link';
 import RenderHtmlContent from '@/components/commons/RenderHTMLContent';
-import { useButtonInfoContent } from '@/hooks/useButtonContent';
+import { useContent } from '@/hooks';
+import { fetchButtonInfo } from '@/lang/fr/button';
 
 const priceTableVariants = cva(
   'container border-2 relative p-5 rounded-md max-w-96 min-w-48 md:min-w-80',
@@ -62,7 +63,7 @@ export const PriceTable = React.forwardRef<HTMLDivElement, PriceTableProps>(
     },
     ref
   ) => {
-    const buttonText = useButtonInfoContent();
+    const buttonText = useContent(fetchButtonInfo, lang.button);
 
     return (
       <div

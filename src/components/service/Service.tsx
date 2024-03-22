@@ -8,14 +8,15 @@ import Section from '@/components/commons/section/Section';
 import { SECTIONS_IDS } from '@/config/links';
 import SectionTitle from '@/components/commons/section/SectionTitle';
 import Icons from '@/components/commons/Icons';
-import { SERVICES_ICONS } from '@/lang/fr/services';
+import { SERVICES_ICONS, fetchServiceSectionContent } from '@/lang/fr/services';
 import TopServiceItem from '@/components/service/TopServiceItem';
 import ServiceItem from '@/components/service/ServiceItem';
 import Link from 'next/link';
 import { ROUTE_CONTACT } from '@/config/routes';
 import { Button } from '@/components/ui/button';
 import { title2 } from '@/assets/fonts';
-import { useButtonInfoContent } from '@/hooks/useButtonContent';
+import { useContent } from '@/hooks';
+import { fetchButtonInfo } from '@/lang/fr/button';
 
 interface ServiceProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -35,7 +36,8 @@ const icon = (label: string) => {
 };
 
 function Service({ className }: ServiceProps) {
-  const buttonText = useButtonInfoContent();
+  const buttonText = useContent(fetchButtonInfo, lang.button);
+  const text = useContent(fetchServiceSectionContent, lang.service);
 
   return (
     <Section id={SECTIONS_IDS.SERVICE} className={cn(className)}>
@@ -46,8 +48,8 @@ function Service({ className }: ServiceProps) {
               className="p-0 mb-4 md:mb-0 min-h-min md:h-min"
               contentClassName="text-start"
               subClassName="text-start md:px-0 lg:px-0"
-              subtitle={lang.service.subtitle}>
-              <RenderHtmlContent content={lang.service.title} />
+              subtitle={text?.subtitle}>
+              <RenderHtmlContent content={text?.title ?? ''} />
             </SectionTitle>
 
             <div className="mt-6">
@@ -66,14 +68,14 @@ function Service({ className }: ServiceProps) {
         </aside>
 
         <div className="md:w-1/2 lg:w-2/3 w-full flex flex-col items-end space-y-8">
-          {lang.service.topServices.map((item, index) => (
+          {text?.topServices.map((item, index) => (
             <TopServiceItem key={index} item={item} />
           ))}
         </div>
       </section>
 
       <section className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:grid-cols-3">
-        {lang.service.services.map((item, index) => (
+        {text?.services.map((item, index) => (
           <ServiceItem key={index} item={item} icon={icon(item.icon)} />
         ))}
       </section>
